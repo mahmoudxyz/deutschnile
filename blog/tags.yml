@@ -43,6 +43,11 @@ intermediate:
   permalink: /tags/intermediate
   description: Content for intermediate German language learners
 
+welcome:
+  label: Welcome
+  permalink: /tags/welcome
+  description: Content for beginners  
+
 advanced:
   label: Advanced
   permalink: /tags/advanced

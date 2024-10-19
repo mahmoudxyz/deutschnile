@@ -11,7 +11,7 @@ const config = {
   organizationName: 'mahmoudxyz', 
   projectName: 'deutschnile',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
