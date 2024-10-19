@@ -1,0 +1,193 @@
+---
+sidebar_position: 3
+---
+
+import React from 'react';
+
+# Die Syntax (German Sentence Structure)
+
+## Introduction
+
+German sentence structure (Syntax) may seem complex at first, but once you understand the basic principles, constructing sentences becomes much easier. This guide covers the main rules of German sentence structure, with examples for various types of sentences.
+
+Let's start with a helpful video overview of German sentence structure:
+
+<iframe
+  width="100%"
+  height="315"
+  src="https://www.youtube.com/embed/7IcvFHeiLE8"
+  title="German Sentence Structure Guide"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+
+## Key Concepts
+
+### 1. Basic Sentence Structure (Main Clauses)
+
+German main clauses typically follow the **SVO pattern**: Subject - Verb - Object
+
+export const SentenceExample = ({ german, english, structure }) => (
+  <div style={{ marginBottom: '20px', border: '1px solid #ddd', padding: '10px', borderRadius: '5px' }}>
+    <p><strong>German:</strong> {german}</p>
+    <p><strong>English:</strong> {english}</p>
+    <p><strong>Structure:</strong> {structure}</p>
+  </div>
+);
+
+<SentenceExample 
+  german="Ich esse einen Apfel."
+  english="I eat an apple."
+  structure="Ich (S) esse (V) einen Apfel (O)"
+/>
+
+**Important**: The verb must always be in the **second position** in main clauses.
+
+Flexible word order is possible, but the verb remains in the second position:
+
+<SentenceExample 
+  german="Einen Apfel esse ich."
+  english="An apple I eat."
+  structure="Einen Apfel (O) esse (V) ich (S)"
+/>
+
+### 2. Verb Position in Main Clauses
+
+The conjugated verb always appears in the **second position**.
+
+<SentenceExample 
+  german="Heute gehe ich ins Kino."
+  english="Today I am going to the cinema."
+  structure="Heute (Adverb) gehe (Verb) ich (Subject) ins Kino (Object)"
+/>
+
+### 3. Subordinate Clauses
+
+In subordinate clauses, the conjugated verb moves to the **end of the clause**.
+
+Structure: Conjunction + Subject + Object + Verb
+
+<SentenceExample 
+  german="Ich bleibe zu Hause, weil ich krank bin."
+  english="I stay at home because I am sick."
+  structure="weil (Conj.) ich (S) krank (O) bin (V)"
+/>
+
+### 4. Questions
+
+1. **Yes/No Questions**: Verb first, then subject
+
+<SentenceExample 
+  german="Gehst du morgen zur Arbeit?"
+  english="Are you going to work tomorrow?"
+  structure="Gehst (V) du (S) morgen zur Arbeit (O)?"
+/>
+
+2. **W-Questions**: Question word, verb, then subject
+
+<SentenceExample 
+  german="Wann gehst du zur Arbeit?"
+  english="When are you going to work?"
+  structure="Wann (Q-word) gehst (V) du (S) zur Arbeit (O)?"
+/>
+
+### 5. Commands (Imperatives)
+
+The verb comes first, often omitting the subject.
+
+<SentenceExample 
+  german="Geh nach Hause!"
+  english="Go home!"
+  structure="Geh (V) nach Hause (O)!"
+/>
+
+### 6. Time-Manner-Place Rule (TMP)
+
+When using adverbs, follow the order: Time - Manner - Place
+
+<SentenceExample 
+  german="Ich gehe heute mit dem Bus nach Berlin."
+  english="I go to Berlin today by bus."
+  structure="Ich (S) gehe (V) heute (Time) mit dem Bus (Manner) nach Berlin (Place)"
+/>
+
+### 7. Negation
+
+Use "nicht" (not) or "kein" (no/none) for negation.
+
+<SentenceExample 
+  german="Ich gehe nicht ins Kino."
+  english="I am not going to the cinema."
+  structure="Ich (S) gehe (V) nicht (Neg) ins Kino (O)"
+/>
+
+<SentenceExample 
+  german="Ich habe keine Zeit."
+  english="I have no time."
+  structure="Ich (S) habe (V) keine (Neg) Zeit (O)"
+/>
+
+## Interactive Practice
+
+Let's practice forming German sentences with this interactive exercise:
+
+export const SentenceBuilder = () => {
+  const [sentence, setSentence] = React.useState({ subject: '', verb: '', object: '' });
+  const [builtSentence, setBuiltSentence] = React.useState('');
+
+  const handleChange = (e) => {
+    setSentence({ ...sentence, [e.target.name]: e.target.value });
+  };
+
+  const buildSentence = () => {
+    setBuiltSentence(`${sentence.subject} ${sentence.verb} ${sentence.object}.`);
+  };
+
+  return (
+    <div style={{ marginTop: '20px', padding: '20px', border: '1px solid #ddd', borderRadius: '5px' }}>
+      <h4>Build a German Sentence</h4>
+      <input 
+        type="text" 
+        name="subject" 
+        placeholder="Subject (e.g., Ich)" 
+        onChange={handleChange} 
+        style={{ margin: '5px', padding: '5px' }}
+      />
+      <input 
+        type="text" 
+        name="verb" 
+        placeholder="Verb (e.g., esse)" 
+        onChange={handleChange} 
+        style={{ margin: '5px', padding: '5px' }}
+      />
+      <input 
+        type="text" 
+        name="object" 
+        placeholder="Object (e.g., einen Apfel)" 
+        onChange={handleChange} 
+        style={{ margin: '5px', padding: '5px' }}
+      />
+      <button onClick={buildSentence} style={{ margin: '5px', padding: '5px' }}>Build Sentence</button>
+      {builtSentence && <p><strong>Your sentence:</strong> {builtSentence}</p>}
+    </div>
+  );
+};
+
+<SentenceBuilder />
+
+## Practice Exercises
+
+1. Create a main clause using SVO structure.
+2. Transform a main clause into a subordinate clause using "weil" (because).
+3. Form a yes/no question and a w-question about your daily routine.
+4. Write a sentence following the Time-Manner-Place rule.
+5. Negate the following sentence: "Ich habe einen Hund." (I have a dog.)
+
+## Additional Resources
+
+- Recommend in our telegram group
+
+## Next Steps
+
+After mastering basic sentence structure, move on to [Personalpronomen (Personal Pronouns)](./personalpronomen) to learn how to use pronouns correctly in your sentences. Remember, practice is key to internalizing these structures. Try to form German sentences regularly in your daily life!

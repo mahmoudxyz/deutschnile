@@ -1,0 +1,163 @@
+---
+sidebar_position: 1
+---
+
+import React from 'react';
+
+# German Alphabet
+
+## Introduction
+
+The German alphabet is the foundation of the language. Mastering it will significantly improve your pronunciation, spelling, and vocabulary comprehension. Let's start with a helpful video guide:
+
+<iframe
+  width="100%"
+  height="315"
+  src="https://www.youtube.com/embed/HxQRSljOYfs"
+  title="German Alphabet Pronunciation Guide"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+
+## The German Alphabet
+
+The German alphabet consists of 26 standard letters, plus 4 additional characters. Let's explore each letter with an example word:
+
+export const AlphabetTable = () => (
+  <table style={{width: '100%', borderCollapse: 'collapse', marginTop: '20px'}}>
+    <thead>
+      <tr style={{backgroundColor: '#f3f3f3'}}>
+        <th style={{border: '1px solid #ddd', padding: '8px'}}>Letter</th>
+        <th style={{border: '1px solid #ddd', padding: '8px'}}>Example Word</th>
+        <th style={{border: '1px solid #ddd', padding: '8px'}}>English Translation</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['A', 'Apfel', 'apple'],
+        ['B', 'Buch', 'book'],
+        ['C', 'Computer', 'computer'],
+        ['D', 'Dorf', 'village'],
+        ['E', 'Elefant', 'elephant'],
+        ['F', 'Fisch', 'fish'],
+        ['G', 'Garten', 'garden'],
+        ['H', 'Haus', 'house'],
+        ['I', 'Insel', 'island'],
+        ['J', 'Jacke', 'jacket'],
+        ['K', 'Katze', 'cat'],
+        ['L', 'Lampe', 'lamp'],
+        ['M', 'Maus', 'mouse'],
+        ['N', 'Nase', 'nose'],
+        ['O', 'Obst', 'fruit'],
+        ['P', 'Papier', 'paper'],
+        ['Q', 'Qualle', 'jellyfish'],
+        ['R', 'Radio', 'radio'],
+        ['S', 'Sonne', 'sun'],
+        ['T', 'Tisch', 'table'],
+        ['U', 'Uhr', 'clock'],
+        ['V', 'Vogel', 'bird'],
+        ['W', 'Wasser', 'water'],
+        ['X', 'Xylophon', 'xylophone'],
+        ['Y', 'Yacht', 'yacht'],
+        ['Z', 'Zebra', 'zebra'],
+      ].map(([letter, word, translation]) => (
+        <tr key={letter}>
+          <td style={{border: '1px solid #ddd', padding: '8px'}}><strong>{letter}</strong></td>
+          <td style={{border: '1px solid #ddd', padding: '8px'}}>{word}</td>
+          <td style={{border: '1px solid #ddd', padding: '8px'}}>{translation}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+);
+
+<AlphabetTable />
+
+## Additional German Letters
+
+In addition to the standard 26 letters, German has four special characters:
+
+export const SpecialCharTable = () => (
+  <table style={{width: '100%', borderCollapse: 'collapse', marginTop: '20px'}}>
+    <thead>
+      <tr style={{backgroundColor: '#f3f3f3'}}>
+        <th style={{border: '1px solid #ddd', padding: '8px'}}>Letter</th>
+        <th style={{border: '1px solid #ddd', padding: '8px'}}>Example Word</th>
+        <th style={{border: '1px solid #ddd', padding: '8px'}}>English Translation</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Ä', 'Äpfel', 'apples'],
+        ['Ö', 'Öl', 'oil'],
+        ['Ü', 'Über', 'over'],
+        ['ß', 'Straße', 'street'],
+      ].map(([letter, word, translation]) => (
+        <tr key={letter}>
+          <td style={{border: '1px solid #ddd', padding: '8px'}}><strong>{letter}</strong></td>
+          <td style={{border: '1px solid #ddd', padding: '8px'}}>{word}</td>
+          <td style={{border: '1px solid #ddd', padding: '8px'}}>{translation}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+);
+
+<SpecialCharTable />
+
+## Practice Exercises
+
+1. **Alphabet Recitation**: Try to recite the entire German alphabet, including the special characters. Use the video as a guide for pronunciation.
+
+2. **Word Association**: For each letter, try to think of a German word that starts with it. You can use the example words as a starting point.
+
+3. **Pronunciation Practice**: Focus on the letters that are pronounced differently from English (like 'R' or 'CH'). Practice saying words with these sounds.
+
+4. **Writing Practice**: Write out the alphabet, including both uppercase and lowercase letters. Pay attention to any differences in how they're written compared to English.
+
+## Interactive Quiz
+
+Test your knowledge of the German alphabet with this quick quiz:
+
+export const AlphabetQuiz = () => {
+  const [score, setScore] = React.useState(0);
+  const [currentQuestion, setCurrentQuestion] = React.useState(0);
+  const questions = [
+    { letter: 'Ö', options: ['Oil', 'Over', 'Apple', 'Street'], correct: 'Oil' },
+    { letter: 'ß', options: ['Street', 'Sun', 'Apple', 'Bird'], correct: 'Street' },
+    { letter: 'Z', options: ['Zebra', 'Zylophone', 'Zoo', 'Zipper'], correct: 'Zebra' },
+  ];
+
+  const handleAnswer = (answer) => {
+    if (answer === questions[currentQuestion].correct) {
+      setScore(score + 1);
+    }
+    setCurrentQuestion(currentQuestion + 1);
+  };
+
+  return (
+    <div style={{marginTop: '20px', padding: '20px', border: '1px solid #ddd', borderRadius: '5px'}}>
+      {currentQuestion < questions.length ? (
+        <>
+          <h4>What English word corresponds to the German word starting with '{questions[currentQuestion].letter}'?</h4>
+          {questions[currentQuestion].options.map((option) => (
+            <button key={option} onClick={() => handleAnswer(option)} style={{margin: '5px', padding: '10px'}}>
+              {option}
+            </button>
+          ))}
+        </>
+      ) : (
+        <h4>Quiz completed! Your score: {score}/{questions.length}</h4>
+      )}
+    </div>
+  );
+};
+
+<AlphabetQuiz />
+
+## Next Steps
+
+Now that you're familiar with the German alphabet, it's time to dive deeper into pronunciation. Move on to [Aussprache (Pronunciation)](./aussprache) to learn how to correctly pronounce German sounds and words.
+
+Remember, mastering the alphabet is your first step towards German fluency. Keep practicing, and don't hesitate to revisit this lesson as needed. Viel Erfolg! (Good luck!)

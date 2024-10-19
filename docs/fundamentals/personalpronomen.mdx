@@ -1,0 +1,229 @@
+---
+sidebar_position: 4
+---
+
+import React from 'react';
+
+# Personalpronomen (Personal Pronouns)
+
+## Introduction
+
+Personal pronouns in German vary based on grammatical case, number, and formality. Understanding these variations is crucial for constructing correct sentences and expressing yourself accurately in German.
+
+Let's start with two helpful videos on German personal pronouns:
+
+### Nominative Case Pronouns
+<iframe
+  width="100%"
+  height="315"
+  src="https://www.youtube.com/embed/IGmXQG65TSY"
+  title="German Nominative Pronouns"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+
+### Accusative Case Pronouns
+<iframe
+  width="100%"
+  height="315"
+  src="https://www.youtube.com/embed/GHRHSR-5thc"
+  title="German Accusative Pronouns"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+
+### Dative Case Pronouns
+<iframe
+  width="100%"
+  height="315"
+  src="https://www.youtube.com/embed/4F3oFBa3MuE"
+  title="German Accusative Pronouns"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+
+## Key Concepts
+
+### 1. Overview of Personal Pronouns
+
+German has four grammatical cases: Nominative, Accusative, Dative, and Genitive. Each case changes the form of personal pronouns.
+
+export const PronounTable = ({ title, data }) => (
+  <div style={{ marginBottom: '20px' }}>
+    <h4>{title}</h4>
+    <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+      <thead>
+        <tr style={{ backgroundColor: '#f3f3f3' }}>
+          <th style={{ border: '1px solid #ddd', padding: '8px' }}>English</th>
+          <th style={{ border: '1px solid #ddd', padding: '8px' }}>Singular</th>
+          <th style={{ border: '1px solid #ddd', padding: '8px' }}>Plural</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map(([english, singular, plural]) => (
+          <tr key={english}>
+            <td style={{ border: '1px solid #ddd', padding: '8px' }}>{english}</td>
+            <td style={{ border: '1px solid #ddd', padding: '8px' }}>{singular}</td>
+            <td style={{ border: '1px solid #ddd', padding: '8px' }}>{plural}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+);
+
+<PronounTable
+  title="Nominative Case (Subject of the Sentence)"
+  data={[
+    ['I', 'ich', '—'],
+    ['You (informal)', 'du', 'ihr'],
+    ['He', 'er', '—'],
+    ['She', 'sie', '—'],
+    ['It', 'es', '—'],
+    ['We', 'wir', '—'],
+    ['You (formal)', 'Sie', 'Sie'],
+    ['They', 'sie', 'sie']
+  ]}
+/>
+
+**Examples**:
+- **Ich** gehe zur Schule. (I go to school.)
+- **Sie** ist meine Freundin. (She is my friend.)
+
+### 2. Pronouns in All Cases
+
+<PronounTable
+  title="Accusative Case (Direct Object)"
+  data={[
+    ['Me', 'mich', '—'],
+    ['You (informal)', 'dich', 'euch'],
+    ['Him', 'ihn', '—'],
+    ['Her', 'sie', '—'],
+    ['It', 'es', '—'],
+    ['Us', 'uns', '—'],
+    ['You (formal)', 'Sie', 'Sie'],
+    ['Them', 'sie', 'sie']
+  ]}
+/>
+
+**Examples**:
+- Kannst du **mich** hören? (Can you hear me?)
+- Ich sehe **ihn**. (I see him.)
+
+<PronounTable
+  title="Dative Case (Indirect Object)"
+  data={[
+    ['To me', 'mir', '—'],
+    ['To you (informal)', 'dir', 'euch'],
+    ['To him', 'ihm', '—'],
+    ['To her', 'ihr', '—'],
+    ['To it', 'ihm', '—'],
+    ['To us', 'uns', '—'],
+    ['To you (formal)', 'Ihnen', 'Ihnen'],
+    ['To them', 'ihnen', 'ihnen']
+  ]}
+/>
+
+**Examples**:
+- Gib **mir** das Buch. (Give me the book.)
+- Ich schenke **ihnen** Blumen. (I give them flowers.)
+
+<PronounTable
+  title="Genitive Case (Possession)"
+  data={[
+    ['My', 'meiner', '—'],
+    ['Your (informal)', 'deiner', 'eurer'],
+    ['His', 'seiner', '—'],
+    ['Her', 'ihrer', '—'],
+    ['Its', 'seiner', '—'],
+    ['Our', 'unserer', '—'],
+    ['Your (formal)', 'Ihrer', 'Ihrer'],
+    ['Their', 'ihrer', 'ihrer']
+  ]}
+/>
+
+**Examples**:
+- Trotz **meiner** Hilfe konnte er es nicht schaffen. (Despite my help, he couldn't manage it.)
+
+### 3. Formal and Informal "You"
+
+- **"du"**: informal singular
+- **"ihr"**: informal plural
+- **"Sie"**: formal (both singular and plural)
+
+**Examples**:
+- Sprichst **du** Deutsch? (Do you speak German? - informal)
+- Sprechen **Sie** Deutsch? (Do you speak German? - formal)
+
+### 4. Reflexive Pronouns
+
+Used when the subject and object of the sentence are the same:
+
+<PronounTable
+  title="Reflexive Pronouns"
+  data={[
+    ['Myself', 'mich/mir', '—'],
+    ['Yourself', 'dich/dir', 'euch'],
+    ['Himself', 'sich', '—'],
+    ['Herself', 'sich', '—'],
+    ['Itself', 'sich', '—'],
+    ['Ourselves', 'uns', '—'],
+    ['Yourselves', 'euch', 'euch'],
+    ['Themselves', 'sich', 'sich']
+  ]}
+/>
+
+**Examples**:
+- Ich wasche **mich**. (I wash myself.)
+- Er erinnert **sich** an die Reise. (He remembers the trip.)
+
+## Interactive Practice
+
+Let's practice using personal pronouns with this interactive exercise:
+
+export const PronounPractice = () => {
+  const [sentence, setSentence] = React.useState('');
+  const [feedback, setFeedback] = React.useState('');
+
+  const checkSentence = () => {
+    // This is a simple check. You might want to implement more sophisticated validation.
+    if (sentence.includes('ich') || sentence.includes('du') || sentence.includes('er') || sentence.includes('sie') || sentence.includes('es')) {
+      setFeedback('Great job! You used a personal pronoun correctly.');
+    } else {
+      setFeedback('Try again. Make sure to use a personal pronoun in your sentence.');
+    }
+  };
+
+  return (
+    <div style={{ marginTop: '20px', padding: '20px', border: '1px solid #ddd', borderRadius: '5px' }}>
+      <h4>Create a sentence using a personal pronoun:</h4>
+      <input 
+        type="text" 
+        value={sentence}
+        onChange={(e) => setSentence(e.target.value)}
+        style={{ width: '100%', padding: '5px', marginBottom: '10px' }}
+      />
+      <button onClick={checkSentence} style={{ padding: '5px 10px' }}>Check Sentence</button>
+      {feedback && <p style={{ marginTop: '10px' }}>{feedback}</p>}
+    </div>
+  );
+};
+
+<PronounPractice />
+
+## Key Rules to Remember
+
+1. Always use "Sie" for formal interactions and "du" for informal ones.
+2. Make sure the pronoun matches the case required by the verb.
+3. Use reflexive pronouns when the subject and object of a verb are the same.
+
+## Additional Resources
+
+- Recommend in telegram.
+
+## Next Steps
+
+After mastering personal pronouns, move on to [Die Zahlen (Numbers)](./die-zahlen) to learn how to count and use numbers in German sentences.

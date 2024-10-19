@@ -1,0 +1,198 @@
+---
+sidebar_position: 10
+id: resources
+title: German Learning Resources
+description: A curated list of resources for learning German
+---
+
+import React from 'react';
+
+# German Learning Resources (Not Complete)
+
+Please note this page not finished yet.
+
+Welcome to our curated list of German learning resources! Whether you're a beginner just starting out or an advanced learner looking to refine your skills, you'll find valuable tools and materials here to support your German language journey.
+
+## Online Courses and Apps
+
+Learn German at your own pace with these online platforms:
+
+- [Duolingo](https://www.duolingo.com/course/de/en/Learn-German) - Free, gamified language learning
+- [Babbel](https://www.babbel.com/learn-german) - Comprehensive German courses with a focus on practical conversation
+- [Rosetta Stone](https://www.rosettastone.com/learn-german) - Immersive language learning software
+- [Busuu](https://www.busuu.com/en/course/learn-german-online) - Language learning with native speaker interactions
+
+## Textbooks and Workbooks
+
+Traditional learning materials for structured study:
+
+- "Menschen" series by Hueber Verlag
+- "Schritte International" by Hueber Verlag
+- "Hammer's German Grammar and Usage" by Martin Durrell
+- "Practice Makes Perfect: Complete German Grammar" by Ed Swick
+
+## Podcasts and Audio Resources
+
+Improve your listening skills with these German podcasts:
+
+- [Coffee Break German](https://coffeebreaklanguages.com/coffeebreakgerman/) - Beginner to intermediate lessons
+- [Slow German mit Annik Rubens](https://slowgerman.com/) - News and stories in slow, clear German
+- [Deutschlandlabor](https://www.dw.com/en/learn-german/deutschlandlabor/s-32379) - Short videos about German culture with transcripts
+
+## YouTube Channels
+
+Visual learners can benefit from these German YouTube channels:
+
+- [Easy German](https://www.youtube.com/c/EasyGerman) - Street interviews and language lessons
+- [Deutsch für Euch](https://www.youtube.com/user/DeutschFuerEuch) - Grammar explanations and language tips
+- [Get Germanized](https://www.youtube.com/user/MeisterLehnsherr) - German language and culture
+
+## Language Exchange and Practice
+
+Connect with native speakers and fellow learners:
+
+- [Tandem](https://www.tandem.net/) - Language exchange app
+- [HelloTalk](https://www.hellotalk.com/) - Chat with native speakers
+- [Meetup](https://www.meetup.com/) - Find local German language meetups
+
+## Dictionaries and Translation Tools
+
+Reliable references for vocabulary and translation:
+
+- [dict.cc](https://www.dict.cc/) - Comprehensive German-English dictionary
+- [Leo](https://dict.leo.org/german-english/) - Dictionary with forums for language questions
+- [DeepL](https://www.deepl.com/translator) - AI-powered translator with high accuracy
+
+## News and Media in German
+
+Stay updated with current events while practicing German:
+
+- [Deutsche Welle](https://www.dw.com/de/) - News in German with learning resources
+- [Der Spiegel](https://www.spiegel.de/) - Popular German news magazine
+- [Tagesschau in 100 Sekunden](https://www.tagesschau.de/100sekunden/) - Daily news summary in 100 seconds
+
+## Grammar and Exercises
+
+Additional resources for grammar practice:
+
+- [German.net](https://german.net/) - Free German exercises and grammar explanations
+- [Lingolia German](https://deutsch.lingolia.com/en/) - Grammar explanations and interactive exercises
+
+## Interactive Resource Finder
+
+Not sure where to start? Use our interactive resource finder to get personalized recommendations:
+
+export const ResourceFinder = () => {
+  const [level, setLevel] = React.useState('');
+  const [focus, setFocus] = React.useState('');
+  const [recommendation, setRecommendation] = React.useState('');
+
+
+  const getRecommendation = () => {
+    if (level === 'beginner' && focus === 'vocabulary') {
+      setRecommendation('Try Duolingo or Memrise for building your basic German vocabulary.');
+    } else if (level === 'intermediate' && focus === 'grammar') {
+      setRecommendation('Check out "Hammer\'s German Grammar and Usage" or the German.net website for in-depth grammar practice.');
+    } else if (level === 'advanced' && focus === 'conversation') {
+      setRecommendation('Join a language exchange platform like Tandem or HelloTalk to practice with native speakers.');
+    } else {
+      setRecommendation('Based on your selection, we recommend exploring a mix of resources. Try combining online courses with podcasts and regular practice with native speakers.');
+    }
+  };
+
+    const containerStyle = {
+    marginTop: '30px',
+    padding: '30px',
+    borderRadius: '10px',
+    backgroundColor: '#f8f9fa',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+  };
+
+  const inputContainerStyle = {
+    marginBottom: '20px',
+  };
+
+  const labelStyle = {
+    display: 'block',
+    marginBottom: '5px',
+    fontWeight: 'bold',
+    color: '#333',
+  };
+
+  const selectStyle = {
+    width: '100%',
+    padding: '10px',
+    borderRadius: '5px',
+    border: '1px solid #ddd',
+    backgroundColor: '#fff',
+    fontSize: '16px',
+  };
+
+  const buttonStyle = {
+    backgroundColor: '#007bff',
+    color: '#fff',
+    padding: '12px 20px',
+    border: 'none',
+    borderRadius: '5px',
+    fontSize: '16px',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s',
+  };
+
+  const recommendationStyle = {
+    marginTop: '20px',
+    padding: '15px',
+    backgroundColor: '#e9ecef',
+    borderRadius: '5px',
+    borderLeft: '5px solid #007bff',
+  };
+
+  return (
+    <div style={containerStyle}>
+      <h3 style={{marginTop: 0, color: '#007bff'}}>Find Your Ideal Resource</h3>
+      <div style={inputContainerStyle}>
+        <label style={labelStyle}>Your Level:</label>
+        <select 
+          value={level} 
+          onChange={(e) => setLevel(e.target.value)}
+          style={selectStyle}
+        >
+          <option value="">Select Level</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+      </div>
+      <div style={inputContainerStyle}>
+        <label style={labelStyle}>Learning Focus:</label>
+        <select 
+          value={focus} 
+          onChange={(e) => setFocus(e.target.value)}
+          style={selectStyle}
+        >
+          <option value="">Select Focus</option>
+          <option value="vocabulary">Vocabulary</option>
+          <option value="grammar">Grammar</option>
+          <option value="conversation">Conversation</option>
+        </select>
+      </div>
+      <button 
+        onClick={getRecommendation} 
+        style={buttonStyle}
+        onMouseOver={(e) => e.target.style.backgroundColor = '#0056b3'}
+        onMouseOut={(e) => e.target.style.backgroundColor = '#007bff'}
+      >
+        Get Recommendation
+      </button>
+      {recommendation && (
+        <div style={recommendationStyle}>
+          <strong>Recommendation:</strong> {recommendation}
+        </div>
+      )}
+    </div>
+  );
+};
+
+<ResourceFinder />
+
+Remember, the best resource is the one you'll use consistently. Mix and match these resources to create a learning plan that works for you. Viel Erfolg beim Deutschlernen! (Good luck with learning German!)

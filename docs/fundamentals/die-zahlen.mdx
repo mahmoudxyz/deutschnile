@@ -1,0 +1,334 @@
+---
+sidebar_position: 5
+---
+
+import React, { useState, useEffect } from 'react';
+
+
+# Die Zahlen (German Numbers)
+
+## Introduction
+
+Understanding numbers in German is crucial for everyday communication. German numbers follow specific patterns, with some rules and exceptions depending on the value. This guide will help you form and use numbers in German.
+
+## Key Concepts
+
+### 1. Basic Numbers (0 - 12)
+
+These numbers have unique names:
+
+export const NumberTable = ({ data }) => (
+  <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '20px' }}>
+    <thead>
+      <tr style={{ backgroundColor: '#f3f3f3' }}>
+        <th style={{ border: '1px solid #ddd', padding: '8px' }}>Number</th>
+        <th style={{ border: '1px solid #ddd', padding: '8px' }}>German</th>
+      </tr>
+    </thead>
+    <tbody>
+      {data.map(([number, german]) => (
+        <tr key={number}>
+          <td style={{ border: '1px solid #ddd', padding: '8px' }}>{number}</td>
+          <td style={{ border: '1px solid #ddd', padding: '8px' }}>{german}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+);
+
+<NumberTable
+  data={[
+    ['0', 'Null'],
+    ['1', 'Eins'],
+    ['2', 'Zwei'],
+    ['3', 'Drei'],
+    ['4', 'Vier'],
+    ['5', 'Fünf'],
+    ['6', 'Sechs'],
+    ['7', 'Sieben'],
+    ['8', 'Acht'],
+    ['9', 'Neun'],
+    ['10', 'Zehn'],
+    ['11', 'Elf'],
+    ['12', 'Zwölf']
+  ]}
+/>
+
+### 2. Forming Numbers (13 - 19)
+
+Numbers from 13 to 19 combine the unit number and "zehn" (ten):
+
+export const NumberFormationTable = ({ data }) => (
+  <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '20px' }}>
+    <thead>
+      <tr style={{ backgroundColor: '#f3f3f3' }}>
+        <th style={{ border: '1px solid #ddd', padding: '8px' }}>Number</th>
+        <th style={{ border: '1px solid #ddd', padding: '8px' }}>German</th>
+        <th style={{ border: '1px solid #ddd', padding: '8px' }}>Rule</th>
+      </tr>
+    </thead>
+    <tbody>
+      {data.map(([number, german, rule]) => (
+        <tr key={number}>
+          <td style={{ border: '1px solid #ddd', padding: '8px' }}>{number}</td>
+          <td style={{ border: '1px solid #ddd', padding: '8px' }}>{german}</td>
+          <td style={{ border: '1px solid #ddd', padding: '8px' }}>{rule}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+);
+
+<NumberFormationTable
+  data={[
+    ['13', 'Dreizehn', '"drei" + "zehn"'],
+    ['14', 'Vierzehn', '"vier" + "zehn"'],
+    ['15', 'Fünfzehn', '"fünf" (without "f") + "zehn"'],
+    ['16', 'Sechzehn', '"sechs" (without "s") + "zehn"'],
+    ['17', 'Siebzehn', '"sieben" (shortened to "sieb") + "zehn"'],
+    ['18', 'Achtzehn', '"acht" + "zehn"'],
+    ['19', 'Neunzehn', '"neun" + "zehn"']
+  ]}
+/>
+
+### 3. Tens (20, 30, 40, etc.)
+
+The tens are distinct:
+
+<NumberTable
+  data={[
+    ['20', 'Zwanzig'],
+    ['30', 'Dreißig'],
+    ['40', 'Vierzig'],
+    ['50', 'Fünfzig'],
+    ['60', 'Sechzig'],
+    ['70', 'Siebzig'],
+    ['80', 'Achtzig'],
+    ['90', 'Neunzig']
+  ]}
+/>
+
+### 4. Numbers Between 21 and 99
+
+Combine the unit number, "und" (and), and the tens. The unit comes before the tens:
+
+<NumberFormationTable
+  data={[
+    ['21', 'Einundzwanzig', '"eins" (shortened to "ein") + "und" + "zwanzig"'],
+    ['32', 'Zweiunddreißig', '"zwei" + "und" + "dreißig"'],
+    ['47', 'Siebenundvierzig', '"sieben" + "und" + "vierzig"'],
+    ['58', 'Achtundfünfzig', '"acht" + "und" + "fünfzig"']
+  ]}
+/>
+
+### 5. Hundreds, Thousands, and Beyond
+
+- **Hundreds**: Unit number + "hundert"
+  - 100 = Einhundert
+  - 200 = Zweihundert
+  - 321 = Dreihunderteinundzwanzig
+
+- **Thousands**: Similar formation
+  - 1,000 = Eintausend
+  - 2,000 = Zweitausend
+  - 5,678 = Fünftausendsechshundertachtundsiebzig
+
+### 6. Combining Large Numbers
+
+Large numbers combine smaller units:
+- 2,345 = Zweitausenddreihundertfünfundvierzig
+- 13,876 = Dreizehntausendachthundertsechsundsiebzig
+
+## Key Rules to Remember
+
+1. "Eins" becomes "ein" when combining with other numbers.
+   - Example: "einundzwanzig" (21) not "einsundzwanzig"
+
+2. Use "und" only for numbers between 21 and 99.
+   - Example: 421 = Vierhunderteinundzwanzig (no "und" between "vierhundert" and "einundzwanzig")
+
+3. Numbers ending in "-ig" often change spelling compared to the unit number.
+
+4. "Sechs" and "sieben" often shorten to "sech" and "sieb" in combinations.
+   - Example: "sechzehn" (16), "siebzehn" (17)
+
+
+## Interactive Practice
+
+Let's practice forming German numbers with this interactive exercise. Try converting numbers from 0 to 9999!
+
+
+export const EnhancedNumberPractice = () => {
+  const [number, setNumber] = useState('');
+  const [germanNumber, setGermanNumber] = useState('');
+  const [feedback, setFeedback] = useState('');
+  const [score, setScore] = useState(0);
+  const [totalAttempts, setTotalAttempts] = useState(0);
+
+  const convertToGerman = (num) => {
+    const units = ['', 'ein', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun'];
+    const teens = ['zehn', 'elf', 'zwölf', 'dreizehn', 'vierzehn', 'fünfzehn', 'sechzehn', 'siebzehn', 'achtzehn', 'neunzehn'];
+    const tens = ['', '', 'zwanzig', 'dreißig', 'vierzig', 'fünfzig', 'sechzig', 'siebzig', 'achtzig', 'neunzig'];
+    
+    if (num === 0) return 'null';
+    if (num === 1) return 'eins';
+    
+    let result = '';
+    
+    if (num >= 1000) {
+      result += convertToGerman(Math.floor(num / 1000)) + 'tausend';
+      num %= 1000;
+    }
+    
+    if (num >= 100) {
+      result += units[Math.floor(num / 100)] + 'hundert';
+      num %= 100;
+    }
+    
+    if (num >= 20) {
+      if (num % 10 !== 0) {
+        result += units[num % 10] + 'und';
+      }
+      result += tens[Math.floor(num / 10)];
+    } else if (num >= 10) {
+      result += teens[num - 10];
+    } else if (num > 0) {
+      result += units[num];
+    }
+    
+    return result;
+  };
+
+  const checkNumber = () => {
+    const num = parseInt(number);
+    if (isNaN(num) || num < 0 || num > 9999) {
+      setFeedback('Please enter a number between 0 and 9999.');
+      return;
+    }
+    const correct = convertToGerman(num);
+    setTotalAttempts(totalAttempts + 1);
+    if (germanNumber.toLowerCase().replace(/\s/g, '') === correct) {
+      setFeedback('Correct! Well done!');
+      setScore(score + 1);
+    } else {
+      setFeedback(`Not quite. The correct answer is: ${correct}`);
+    }
+  };
+
+  const generateRandomNumber = () => {
+    setNumber(Math.floor(Math.random() * 10000).toString());
+    setGermanNumber('');
+    setFeedback('');
+  };
+
+  useEffect(() => {
+    generateRandomNumber();
+  }, []);
+
+  return (
+    <div style={{
+      backgroundColor: '#f0f4f8',
+      borderRadius: '10px',
+      padding: '20px',
+      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+      marginTop: '20px'
+    }}>
+      <h3 style={{ color: '#2c5282', marginBottom: '15px' }}>Convert Numbers to German</h3>
+      <div style={{ marginBottom: '15px' }}>
+        <label style={{ display: 'block', marginBottom: '5px', color: '#4a5568' }}>Number to convert:</label>
+        <input 
+          type="number" 
+          value={number}
+          onChange={(e) => setNumber(e.target.value)}
+          style={{ 
+            width: '100%', 
+            padding: '10px', 
+            borderRadius: '5px', 
+            border: '1px solid #cbd5e0',
+            fontSize: '16px'
+          }}
+        />
+      </div>
+      <div style={{ marginBottom: '15px' }}>
+        <label style={{ display: 'block', marginBottom: '5px', color: '#4a5568' }}>German word for this number:</label>
+        <input 
+          type="text" 
+          value={germanNumber}
+          onChange={(e) => setGermanNumber(e.target.value)}
+          style={{ 
+            width: '100%', 
+            padding: '10px', 
+            borderRadius: '5px', 
+            border: '1px solid #cbd5e0',
+            fontSize: '16px'
+          }}
+        />
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '15px' }}>
+        <button 
+          onClick={checkNumber} 
+          style={{
+            padding: '10px 20px',
+            backgroundColor: '#4299e1',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            fontSize: '16px'
+          }}
+        >
+          Check Answer
+        </button>
+        <button 
+          onClick={generateRandomNumber} 
+          style={{
+            padding: '10px 20px',
+            backgroundColor: '#48bb78',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            fontSize: '16px'
+          }}
+        >
+          New Number
+        </button>
+      </div>
+      {feedback && (
+        <p style={{ 
+          marginTop: '10px', 
+          padding: '10px', 
+          backgroundColor: feedback.startsWith('Correct') ? '#c6f6d5' : '#fed7d7', 
+          borderRadius: '5px',
+          color: feedback.startsWith('Correct') ? '#2f855a' : '#c53030'
+        }}>
+          {feedback}
+        </p>
+      )}
+      <div style={{ marginTop: '20px', textAlign: 'center', color: '#4a5568' }}>
+        <p>Score: {score} / {totalAttempts}</p>
+        <p>Accuracy: {totalAttempts > 0 ? ((score / totalAttempts) * 100).toFixed(2) : 0}%</p>
+      </div>
+    </div>
+  );
+};
+
+<EnhancedNumberPractice />
+
+This interactive practice tool allows you to test your knowledge of German numbers. You can either enter a number yourself or generate a random one. Try to convert as many numbers as you can and track your progress!
+
+Remember:
+- Numbers are written as one word in German
+- Pay attention to the special rules for forming numbers (e.g., the order of tens and ones)
+- Practice regularly to improve your speed and accuracy
+
+Keep challenging yourself with different numbers to become proficient in German numerals!
+
+
+## Additional Resources
+
+- Recommend in telegram
+
+## Next Steps
+
+Now that you've mastered numbers, you're ready to move on to more advanced topics in German. Consider exploring German grammar rules or building your vocabulary with common phrases and expressions.

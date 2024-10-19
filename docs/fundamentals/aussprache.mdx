@@ -1,0 +1,179 @@
+---
+sidebar_position: 2
+---
+
+import React from 'react';
+
+# Aussprache (Pronunciation)
+
+## Introduction
+
+Mastering German pronunciation is crucial for clear communication. This guide covers common letter combinations and sounds that are unique to German, helping you speak more naturally and confidently.
+
+Let's start with a comprehensive video guide to German pronunciation:
+
+<iframe
+  width="100%"
+  height="315"
+  src="https://www.youtube.com/embed/nI77g2VWysE"
+  title="German Pronunciation Guide"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+
+## Key Concepts
+
+### 1. Common Letter Combinations
+
+export const LetterCombination = ({ combination, pronunciation, examples }) => (
+  <div style={{ marginBottom: '20px', border: '1px solid #ddd', padding: '10px', borderRadius: '5px' }}>
+    <h4 style={{ marginTop: '0' }}>{combination}</h4>
+    <p><strong>Pronunciation:</strong> {pronunciation}</p>
+    <p><strong>Examples:</strong></p>
+    <ul>
+      {examples.map((example, index) => (
+        <li key={index}>{example}</li>
+      ))}
+    </ul>
+  </div>
+);
+
+<LetterCombination 
+  combination="ch"
+  pronunciation="/ç/ (soft 'hissing' sound) after e, i, ä, ö, and diphthongs; /x/ (harsh, throaty sound) after a, o, u"
+  examples={[
+    "ich (/ɪç/) – I",
+    "Buch (/buːx/) – book"
+  ]}
+/>
+
+<LetterCombination 
+  combination="sch"
+  pronunciation="/ʃ/ (like 'sh' in English)"
+  examples={[
+    "Schule (/ˈʃuːlə/) – school"
+  ]}
+/>
+
+<LetterCombination 
+  combination="ei"
+  pronunciation="/aɪ/ (like 'eye' in English)"
+  examples={[
+    "Wein (/vaɪn/) – wine"
+  ]}
+/>
+
+<LetterCombination 
+  combination="ie"
+  pronunciation="/iː/ (long 'ee' sound)"
+  examples={[
+    "Biene (/ˈbiːnə/) – bee"
+  ]}
+/>
+
+<LetterCombination 
+  combination="eu / äu"
+  pronunciation="/ɔʏ/ (similar to 'oy' in 'boy')"
+  examples={[
+    "Freund (/fʁɔʏnt/) – friend",
+    "Häuser (/ˈhɔʏzɐ/) – houses"
+  ]}
+/>
+
+### 2. The German "R"
+
+The German "R" has different pronunciations depending on its position in a word:
+
+1. **At the beginning of a word or syllable**
+   - Pronounced in the throat (uvular "r")
+   - Examples: rot (red), Regen (rain), rufen (to call)
+
+2. **At the end of a word or after a vowel**
+   - Softer, closer to an English "uh" sound
+   - Examples: sehr (very), aber (but), wunderbar (wonderful)
+
+3. **In the middle of a word**
+   - Usually rolled or lightly trilled
+   - Examples: sparen (to save), fahren (to drive), lernen (to learn)
+
+### 3. Silent 'h'
+
+- The 'h' is often silent when it appears in the middle of a word
+- Example: gehen (/ˈɡeːən/) – to go
+
+## Practice Exercises
+
+1. **'ch' Sound Practice**
+   Record yourself saying these words and compare with native pronunciations:
+   - ich, Buch, Mädchen, Küche
+
+2. **'ei' vs 'ie' Differentiation**
+   Practice saying these word pairs:
+   - Wein vs. Wien
+   - Bein vs. Biene
+
+3. **German 'R' Practice**
+   Focus on the different 'R' sounds in these words:
+   - rot, Regen, sehr, aber, fahren, lernen
+
+## Interactive Pronunciation Quiz
+
+Test your understanding of German pronunciation:
+
+export const PronunciationQuiz = () => {
+  const [score, setScore] = React.useState(0);
+  const [currentQuestion, setCurrentQuestion] = React.useState(0);
+  const questions = [
+    { 
+      question: "How is 'ch' pronounced in 'ich'?", 
+      options: ["Like 'k'", "Soft hissing sound", "Hard throaty sound", "Like 'sh'"], 
+      correct: "Soft hissing sound" 
+    },
+    { 
+      question: "How is 'ei' pronounced?", 
+      options: ["Like 'ee' in 'see'", "Like 'ay' in 'say'", "Like 'eye'", "Like 'e' in 'bet'"], 
+      correct: "Like 'eye'" 
+    },
+    { 
+      question: "How is the 'R' pronounced at the beginning of a word?", 
+      options: ["Rolled with tongue tip", "Like English 'R'", "In the throat (uvular)", "Silent"], 
+      correct: "In the throat (uvular)" 
+    },
+  ];
+
+  const handleAnswer = (answer) => {
+    if (answer === questions[currentQuestion].correct) {
+      setScore(score + 1);
+    }
+    setCurrentQuestion(currentQuestion + 1);
+  };
+
+  return (
+    <div style={{marginTop: '20px', padding: '20px', border: '1px solid #ddd', borderRadius: '5px'}}>
+      {currentQuestion < questions.length ? (
+        <>
+          <h4>{questions[currentQuestion].question}</h4>
+          {questions[currentQuestion].options.map((option) => (
+            <button key={option} onClick={() => handleAnswer(option)} style={{margin: '5px', padding: '10px'}}>
+              {option}
+            </button>
+          ))}
+        </>
+      ) : (
+        <h4>Quiz completed! Your score: {score}/{questions.length}</h4>
+      )}
+    </div>
+  );
+};
+
+<PronunciationQuiz />
+
+## Additional Resources
+
+- [Forvo: German Pronunciation Dictionary](https://forvo.com/languages/de/)
+- [DW: German Pronunciation](https://learngerman.dw.com/en/pronunciation/l-37250531)
+
+## Next Steps
+
+After mastering basic pronunciation, move on to [Die Syntax (Syntax)](./die-syntax) to learn how to structure German sentences correctly. Remember, good pronunciation takes practice. Don't be afraid to listen to native speakers and imitate their sounds!

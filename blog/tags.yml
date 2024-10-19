@@ -1,0 +1,49 @@
+german:
+  label: German
+  permalink: /tags/german
+  description: Posts related to the German language
+
+learning:
+  label: Learning Tips
+  permalink: /tags/learning-tips
+  description: Effective strategies and tips for language learning
+
+grammar:
+  label: Grammar
+  permalink: /tags/grammar
+  description: Explanations and exercises on German grammar
+
+vocabulary:
+  label: Vocabulary
+  permalink: /tags/vocabulary
+  description: Posts focusing on German vocabulary and phrases
+
+culture:
+  label: German Culture
+  permalink: /tags/german-culture
+  description: Insights into German culture, traditions, and customs
+
+pronunciation:
+  label: Pronunciation
+  permalink: /tags/pronunciation
+  description: Tips and exercises for German pronunciation
+
+resources:
+  label: Learning Resources
+  permalink: /tags/resources
+  description: Useful tools, websites, and materials for learning German
+
+beginner:
+  label: Beginner
+  permalink: /tags/beginner
+  description: Content tailored for beginners in German language learning
+
+intermediate:
+  label: Intermediate
+  permalink: /tags/intermediate
+  description: Content for intermediate German language learners
+
+advanced:
+  label: Advanced
+  permalink: /tags/advanced
+  description: Advanced topics in German language and literature
