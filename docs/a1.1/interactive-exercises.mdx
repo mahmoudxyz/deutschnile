@@ -1,0 +1,1049 @@
+---
+sidebar_position: 4
+id: interactive-exercises
+title: Interactive Exercises
+description: Practice what you've learned with interactive exercises covering family, greetings, and introductions
+slug: /fundamentals/interactive-exercises
+---
+
+import React, { useState } from 'react';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Interactive Exercises
+
+## Learning Objectives
+
+By the end of this lesson, you should be able to:
+1. Recall and use vocabulary from previous lessons
+2. Practice family member terms and relationships
+3. Apply correct verb conjugations
+4. Test your knowledge of country names
+5. Demonstrate understanding of introductory phrases
+
+## 1. Family Members Review
+
+Match the German words with their English translations:
+
+export const FamilyMatch = () => {
+  const [matches, setMatches] = React.useState({});
+  const [selected, setSelected] = React.useState(null);
+  const [showResults, setShowResults] = React.useState(false);
+  
+  const pairs = [
+    ['der Vater', 'father'],
+    ['die Mutter', 'mother'],
+    ['der Bruder', 'brother'],
+    ['die Schwester', 'sister']
+  ];
+
+  const handleClick = (item) => {
+    if (!selected) {
+      setSelected(item);
+    } else {
+      setMatches(prev => ({
+        ...prev,
+        [selected]: item,
+        [item]: selected
+      }));
+      setSelected(null);
+    }
+  };
+
+  const checkAnswers = () => setShowResults(true);
+  const reset = () => {
+    setMatches({});
+    setSelected(null);
+    setShowResults(false);
+  };
+
+  return (
+    <div className="matching-exercise">
+      <div className="match-columns">
+        <div className="german-column">
+          {pairs.map(([german]) => (
+            <button
+              key={german}
+              onClick={() => handleClick(german)}
+              className={`match-button ${
+                selected === german ? 'selected' : 
+                german in matches ? 
+                  (showResults ? 
+                    (pairs.find(([g]) => g === german)[1] === matches[german] ? 'correct' : 'incorrect') 
+                    : 'matched') 
+                  : ''
+              }`}
+            >
+              {german}
+            </button>
+          ))}
+        </div>
+        <div className="english-column">
+          {pairs.map(([_, english]) => (
+            <button
+              key={english}
+              onClick={() => handleClick(english)}
+              className={`match-button ${
+                selected === english ? 'selected' : 
+                english in matches ? 
+                  (showResults ? 
+                    (pairs.find(([_, e]) => e === english)[0] === matches[english] ? 'correct' : 'incorrect') 
+                    : 'matched') 
+                  : ''
+              }`}
+            >
+              {english}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="exercise-buttons">
+        <button
+          onClick={checkAnswers}
+          disabled={Object.keys(matches).length !== pairs.length * 2}
+          className="check-button"
+        >
+          Check Answers
+        </button>
+        <button onClick={reset} className="reset-button">
+          Reset
+        </button>
+      </div>
+    </div>
+  );
+};
+
+<FamilyMatch />
+
+## 2. Verb Conjugation Practice
+
+Complete the sentences with the correct form of the verb:
+
+export const VerbPractice = () => {
+  const [answers, setAnswers] = React.useState({});
+  const [showResults, setShowResults] = React.useState(false);
+  
+  const questions = [
+    {
+      id: 1,
+      sentence: 'Ich _______ aus Deutschland.',
+      verb: 'kommen',
+      answer: 'komme'
+    },
+    {
+      id: 2,
+      sentence: 'Du _______ einen Bruder.',
+      verb: 'haben',
+      answer: 'hast'
+    },
+    {
+      id: 3,
+      sentence: 'Meine Schwester _______ in Berlin.',
+      verb: 'wohnen',
+      answer: 'wohnt'
+    }
+  ];
+
+  const handleInput = (id, value) => {
+    setAnswers(prev => ({...prev, [id]: value}));
+  };
+
+  const checkAnswers = () => setShowResults(true);
+  const reset = () => {
+    setAnswers({});
+    setShowResults(false);
+  };
+
+  return (
+    <div className="verb-practice">
+      {questions.map(q => (
+        <div key={q.id} className="verb-question">
+          <p>{q.sentence.replace('_______', 
+            <input
+              type="text"
+              value={answers[q.id] || ''}
+              onChange={e => handleInput(q.id, e.target.value)}
+              disabled={showResults}
+              className="verb-input"
+            />
+          )} ({q.verb})</p>
+          {showResults && (
+            <p className={answers[q.id]?.toLowerCase() === q.answer ? 'correct' : 'incorrect'}>
+              {answers[q.id]?.toLowerCase() === q.answer ? 
+                '✓ Correct!' : 
+                `✗ Incorrect. The correct answer is: ${q.answer}`}
+            </p>
+          )}
+        </div>
+      ))}
+      <div className="exercise-buttons">
+        <button onClick={checkAnswers} className="check-button">Check Answers</button>
+        <button onClick={reset} className="reset-button">Reset</button>
+      </div>
+    </div>
+  );
+};
+
+<VerbPractice />
+
+## 3. Country Names Quiz
+
+<Tabs>
+  <TabItem value="quiz" label="Quiz" default>
+
+export const CountryQuiz = () => {
+  const [currentQuestion, setCurrentQuestion] = React.useState(0);
+  const [score, setScore] = React.useState(0);
+  const [showResults, setShowResults] = React.useState(false);
+  
+  const questions = [
+    {
+      question: 'What is the German word for "Egypt"?',
+      options: ['Ägypten', 'Egypten', 'Egipt', 'Das Egypt'],
+      correct: 'Ägypten'
+    },
+    {
+      question: 'What is the German word for "Germany"?',
+      options: ['Germanien', 'Deutschland', 'Deutsch', 'German'],
+      correct: 'Deutschland'
+    },
+    {
+      question: 'What is the German word for "France"?',
+      options: ['Frankreich', 'Französisch', 'Frank', 'Franse'],
+      correct: 'Frankreich'
+    }
+  ];
+
+  const handleAnswer = (answer) => {
+    if (answer === questions[currentQuestion].correct) {
+      setScore(score + 1);
+    }
+    if (currentQuestion + 1 < questions.length) {
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      setShowResults(true);
+    }
+  };
+
+  const reset = () => {
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowResults(false);
+  };
+
+  return (
+    <div className="country-quiz">
+      {!showResults ? (
+        <div>
+          <h4>{questions[currentQuestion].question}</h4>
+          <div className="quiz-options">
+            {questions[currentQuestion].options.map(option => (
+              <button
+                key={option}
+                onClick={() => handleAnswer(option)}
+                className="quiz-option"
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="quiz-results">
+          <h4>Quiz Complete!</h4>
+          <p>Your score: {score}/{questions.length}</p>
+          <button onClick={reset} className="reset-button">
+            Try Again
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+<CountryQuiz />
+
+  </TabItem>
+  <TabItem value="reference" label="Reference">
+
+| German | English |
+|--------|---------|
+| Deutschland | Germany |
+| Ägypten | Egypt |
+| Frankreich | France |
+| Italien | Italy |
+| Spanien | Spain |
+
+  </TabItem>
+</Tabs>
+
+## 4. Dialogue Practice
+
+Complete the dialogue by selecting the correct phrases:
+
+export const DialoguePractice = () => {
+  const [selections, setSelections] = React.useState({});
+  const [showResults, setShowResults] = React.useState(false);
+  
+  const dialogue = [
+    {
+      id: 1,
+      prompt: 'A: _______ (How do you introduce yourself?)',
+      options: ['Ich heiße Anna', 'Du heißt Anna', 'Sie heißt Anna'],
+      correct: 'Ich heiße Anna'
+    },
+    {
+      id: 2,
+      prompt: 'B: _______ (Ask where someone is from)',
+      options: ['Woher kommst du?', 'Wo bist du?', 'Wann kommst du?'],
+      correct: 'Woher kommst du?'
+    }
+  ];
+
+  const handleSelect = (id, value) => {
+    setSelections(prev => ({...prev, [id]: value}));
+  };
+
+  return (
+    <div className="dialogue-practice">
+      {dialogue.map(d => (
+        <div key={d.id} className="dialogue-line">
+          <p>{d.prompt}</p>
+          <select 
+            value={selections[d.id] || ''} 
+            onChange={e => handleSelect(d.id, e.target.value)}
+            disabled={showResults}
+            className="dialogue-select"
+          >
+            <option value="">Select an answer...</option>
+            {d.options.map(opt => (
+              <option key={opt} value={opt}>{opt}</option>
+            ))}
+          </select>
+          {showResults && (
+            <p className={selections[d.id] === d.correct ? 'correct' : 'incorrect'}>
+              {selections[d.id] === d.correct ? 
+                '✓ Correct!' : 
+                `✗ Incorrect. The correct answer is: ${d.correct}`}
+            </p>
+          )}
+        </div>
+      ))}
+      <div className="exercise-buttons">
+        <button 
+          onClick={() => setShowResults(true)} 
+          className="check-button"
+        >
+          Check Answers
+        </button>
+        <button 
+          onClick={() => {
+            setSelections({});
+            setShowResults(false);
+          }} 
+          className="reset-button"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+  );
+};
+
+<DialoguePractice />
+
+## 5. Time of Day Greetings
+
+Match the correct greeting with the time:
+
+export const TimeGreetings = () => {
+  const [answers, setAnswers] = React.useState({});
+  const [showResults, setShowResults] = React.useState(false);
+  
+  const questions = [
+    {
+      time: "7:00",
+      options: ["Guten Morgen", "Guten Tag", "Guten Abend"],
+      correct: "Guten Morgen"
+    },
+    {
+      time: "14:00",
+      options: ["Guten Morgen", "Guten Tag", "Guten Abend"],
+      correct: "Guten Tag"
+    },
+    {
+      time: "20:00",
+      options: ["Guten Tag", "Guten Abend", "Gute Nacht"],
+      correct: "Guten Abend"
+    }
+  ];
+
+  return (
+    <div className="time-greetings">
+      {questions.map((q, idx) => (
+        <div key={idx} className="time-question">
+          <div className="time-display">{q.time}</div>
+          <div className="greeting-options">
+            {q.options.map(option => (
+              <button
+                key={option}
+                onClick={() => setAnswers({...answers, [idx]: option})}
+                className={`greeting-button ${
+                  answers[idx] === option ? 'selected' : ''
+                } ${
+                  showResults ? 
+                    option === q.correct ? 'correct' : 
+                    answers[idx] === option ? 'incorrect' : '' 
+                  : ''
+                }`}
+                disabled={showResults}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        </div>
+      ))}
+      <div className="exercise-buttons">
+        <button 
+          onClick={() => setShowResults(true)}
+          className="check-button"
+        >
+          Check Answers
+        </button>
+        <button 
+          onClick={() => {
+            setAnswers({});
+            setShowResults(false);
+          }}
+          className="reset-button"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+  );
+};
+
+<TimeGreetings />
+
+## 6. Number Practice
+
+Write out these numbers in German:
+
+export const NumberPractice = () => {
+  const [answers, setAnswers] = React.useState({});
+  const [showResults, setShowResults] = React.useState(false);
+  
+  const numbers = [
+    { number: 23, answer: "dreiundzwanzig" },
+    { number: 45, answer: "fünfundvierzig" },
+    { number: 78, answer: "achtundsiebzig" },
+    { number: 92, answer: "zweiundneunzig" }
+  ];
+
+  return (
+    <div className="number-practice">
+      {numbers.map((num, idx) => (
+        <div key={idx} className="number-question">
+          <div className="number-display">{num.number}</div>
+          <input
+            type="text"
+            value={answers[idx] || ''}
+            onChange={(e) => setAnswers({...answers, [idx]: e.target.value})}
+            disabled={showResults}
+            className="number-input"
+            placeholder="Type in German..."
+          />
+          {showResults && (
+            <div className={answers[idx]?.toLowerCase() === num.answer ? 'correct' : 'incorrect'}>
+              {answers[idx]?.toLowerCase() === num.answer ? 
+                '✓ Correct!' : 
+                `✗ The correct answer is: ${num.answer}`}
+            </div>
+          )}
+        </div>
+      ))}
+      <div className="exercise-buttons">
+        <button onClick={() => setShowResults(true)} className="check-button">
+          Check Answers
+        </button>
+        <button 
+          onClick={() => {
+            setAnswers({});
+            setShowResults(false);
+          }}
+          className="reset-button"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+  );
+};
+
+<NumberPractice />
+
+## 7. Professional Titles
+
+Match the male and female forms of these professions:
+
+export const ProfessionMatch = () => {
+  const [matches, setMatches] = React.useState({});
+  const [selected, setSelected] = React.useState(null);
+  const [showResults, setShowResults] = React.useState(false);
+  
+  const pairs = [
+    ['der Lehrer', 'die Lehrerin'],
+    ['der Arzt', 'die Ärztin'],
+    ['der Ingenieur', 'die Ingenieurin'],
+    ['der Student', 'die Studentin']
+  ];
+
+  const handleClick = (item) => {
+    if (!selected) {
+      setSelected(item);
+    } else {
+      setMatches(prev => ({
+        ...prev,
+        [selected]: item,
+        [item]: selected
+      }));
+      setSelected(null);
+    }
+  };
+
+  return (
+    <div className="profession-match">
+      <div className="match-columns">
+        <div>
+          {pairs.map(([male]) => (
+            <button
+              key={male}
+              onClick={() => handleClick(male)}
+              className={`match-button ${
+                selected === male ? 'selected' : 
+                male in matches ? 
+                  (showResults ? 
+                    (pairs.find(([m]) => m === male)[1] === matches[male] ? 'correct' : 'incorrect') 
+                    : 'matched') 
+                  : ''
+              }`}
+            >
+              {male}
+            </button>
+          ))}
+        </div>
+        <div>
+          {pairs.map(([_, female]) => (
+            <button
+              key={female}
+              onClick={() => handleClick(female)}
+              className={`match-button ${
+                selected === female ? 'selected' : 
+                female in matches ? 
+                  (showResults ? 
+                    (pairs.find(([_, f]) => f === female)[0] === matches[female] ? 'correct' : 'incorrect') 
+                    : 'matched') 
+                  : ''
+              }`}
+            >
+              {female}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="exercise-buttons">
+        <button
+          onClick={() => setShowResults(true)}
+          disabled={Object.keys(matches).length !== pairs.length * 2}
+          className="check-button"
+        >
+          Check Answers
+        </button>
+        <button 
+          onClick={() => {
+            setMatches({});
+            setSelected(null);
+            setShowResults(false);
+          }}
+          className="reset-button"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+  );
+};
+
+<ProfessionMatch />
+
+## 8. Sentence Building
+
+Create correct sentences by selecting the words in the right order:
+
+export const SentenceBuilder = () => {
+  const [sentences, setSentences] = React.useState({});
+  const [showResults, setShowResults] = React.useState(false);
+
+  const exercises = [
+    {
+      id: 1,
+      words: ['komme', 'Ich', 'Deutschland', 'aus'],
+      correct: 'Ich komme aus Deutschland'
+    },
+    {
+      id: 2,
+      words: ['Schwester', 'Meine', 'in', 'Berlin', 'wohnt'],
+      correct: 'Meine Schwester wohnt in Berlin'
+    }
+  ];
+
+  const handleWordClick = (exerciseId, word) => {
+    const currentSentence = sentences[exerciseId] || [];
+    if (!currentSentence.includes(word)) {
+      setSentences({
+        ...sentences,
+        [exerciseId]: [...currentSentence, word]
+      });
+    }
+  };
+
+  const handleReset = (exerciseId) => {
+    setSentences({
+      ...sentences,
+      [exerciseId]: []
+    });
+  };
+
+  return (
+    <div className="sentence-builder">
+      {exercises.map(exercise => (
+        <div key={exercise.id} className="sentence-exercise">
+          <div className="word-bank">
+            {exercise.words.map(word => (
+              <button
+                key={word}
+                onClick={() => handleWordClick(exercise.id, word)}
+                disabled={showResults}
+                className="word-button"
+              >
+                {word}
+              </button>
+            ))}
+          </div>
+          <div className="built-sentence">
+            {(sentences[exercise.id] || []).map((word, idx) => (
+              <span key={idx} className="sentence-word">{word}</span>
+            ))}
+          </div>
+          {showResults && (
+            <div className={
+              sentences[exercise.id]?.join(' ') === exercise.correct ? 
+              'correct' : 'incorrect'
+            }>
+              {sentences[exercise.id]?.join(' ') === exercise.correct ? 
+                '✓ Correct!' : 
+                `✗ Correct answer: ${exercise.correct}`}
+            </div>
+          )}
+          <button 
+            onClick={() => handleReset(exercise.id)}
+            className="reset-button"
+          >
+            Reset Sentence
+          </button>
+        </div>
+      ))}
+      <div className="exercise-buttons">
+        <button
+          onClick={() => setShowResults(true)}
+          className="check-button"
+        >
+          Check All
+        </button>
+        <button
+          onClick={() => {
+            setSentences({});
+            setShowResults(false);
+          }}
+          className="reset-button"
+        >
+          Reset All
+        </button>
+      </div>
+    </div>
+  );
+};
+
+<SentenceBuilder />
+
+
+## 9. Article Practice (der/die/das)
+
+Choose the correct article for each noun:
+
+export const ArticlePractice = () => {
+  const [answers, setAnswers] = React.useState({});
+  const [showResults, setShowResults] = React.useState(false);
+  
+  const nouns = [
+    { word: 'Buch', correct: 'das', hint: 'book' },
+    { word: 'Katze', correct: 'die', hint: 'cat' },
+    { word: 'Mann', correct: 'der', hint: 'man' },
+    { word: 'Frau', correct: 'die', hint: 'woman' },
+    { word: 'Kind', correct: 'das', hint: 'child' },
+    { word: 'Haus', correct: 'das', hint: 'house' }
+  ];
+
+  const handleSelect = (word, article) => {
+    setAnswers(prev => ({...prev, [word]: article}));
+  };
+
+  return (
+    <div className="article-practice">
+      {nouns.map(({ word, correct, hint }) => (
+        <div key={word} className="article-question">
+          <div className="word-container">
+            <span className="german-word">{word}</span>
+            <span className="word-hint">({hint})</span>
+          </div>
+          <div className="article-buttons">
+            {['der', 'die', 'das'].map(article => (
+              <button
+                key={article}
+                onClick={() => handleSelect(word, article)}
+                disabled={showResults}
+                className={`article-button ${
+                  answers[word] === article ? 'selected' : ''
+                } ${
+                  showResults ? 
+                    article === correct ? 'correct' : 
+                    answers[word] === article ? 'incorrect' : '' 
+                  : ''
+                }`}
+              >
+                {article}
+              </button>
+            ))}
+          </div>
+          {showResults && (
+            <div className={answers[word] === correct ? 'correct-answer' : 'incorrect-answer'}>
+              {answers[word] === correct ? 
+                '✓ Correct!' : 
+                `✗ Correct article: ${correct}`}
+            </div>
+          )}
+        </div>
+      ))}
+      <div className="exercise-buttons">
+        <button onClick={() => setShowResults(true)} className="check-button">
+          Check Answers
+        </button>
+        <button 
+          onClick={() => {
+            setAnswers({});
+            setShowResults(false);
+          }}
+          className="reset-button"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+  );
+};
+
+<ArticlePractice />
+
+## 10. Memory Game (Vocabulary)
+
+Match the pairs of German words with their English translations:
+
+export const MemoryGame = () => {
+  const [flippedIndexes, setFlippedIndexes] = React.useState([]);
+  const [matched, setMatched] = React.useState([]);
+  const [disabled, setDisabled] = React.useState(false);
+  
+  const cards = [
+    { id: 1, content: 'Haus' },
+    { id: 2, content: 'house' },
+    { id: 3, content: 'Katze' },
+    { id: 4, content: 'cat' },
+    { id: 5, content: 'Buch' },
+    { id: 6, content: 'book' },
+    { id: 7, content: 'Hund' },
+    { id: 8, content: 'dog' }
+  ];
+
+  // Create pairs matching logic
+  const cardPairs = {
+    'Haus': 'house',
+    'house': 'Haus',
+    'Katze': 'cat',
+    'cat': 'Katze',
+    'Buch': 'book',
+    'book': 'Buch',
+    'Hund': 'dog',
+    'dog': 'Hund'
+  };
+
+  const handleCardClick = (index) => {
+    // Prevent clicking if already two cards are flipped or card is already matched
+    if (disabled || flippedIndexes.length === 2 || matched.includes(index)) {
+      return;
+    }
+
+    // Prevent clicking the same card twice
+    if (flippedIndexes.includes(index)) {
+      return;
+    }
+
+    const newFlipped = [...flippedIndexes, index];
+    setFlippedIndexes(newFlipped);
+
+    // Check for matches when two cards are flipped
+    if (newFlipped.length === 2) {
+      setDisabled(true);
+      const [firstIndex, secondIndex] = newFlipped;
+      const firstCard = cards[firstIndex];
+      const secondCard = cards[secondIndex];
+
+      if (cardPairs[firstCard.content] === secondCard.content) {
+        // Match found
+        setMatched([...matched, firstIndex, secondIndex]);
+        setFlippedIndexes([]);
+        setDisabled(false);
+      } else {
+        // No match, flip cards back
+        setTimeout(() => {
+          setFlippedIndexes([]);
+          setDisabled(false);
+        }, 1000);
+      }
+    }
+  };
+
+  return (
+    <div className="memory-game">
+      <div className="memory-grid">
+        {cards.map((card, index) => (
+          <button
+            key={index}
+            onClick={() => handleCardClick(index)}
+            disabled={disabled || matched.includes(index)}
+            className={`memory-card ${
+              flippedIndexes.includes(index) || matched.includes(index) ? 'flipped' : ''
+            }`}
+          >
+            <div className="card-inner">
+              <div className="card-front">?</div>
+              <div className="card-back">{card.content}</div>
+            </div>
+          </button>
+        ))}
+      </div>
+      <div className="exercise-buttons">
+        <button
+          onClick={() => {
+            setFlippedIndexes([]);
+            setMatched([]);
+            setDisabled(false);
+          }}
+          className="reset-button"
+        >
+          New Game
+        </button>
+      </div>
+    </div>
+  );
+};
+
+
+<MemoryGame />
+
+## 11. Sentence Scramble
+
+Unscramble these German sentences:
+
+export const SentenceScramble = () => {
+  const [arrangements, setArrangements] = React.useState({});
+  const [showResults, setShowResults] = React.useState(false);
+
+  const sentences = [
+    {
+      id: 1,
+      scrambled: ['Bruder', 'Mein', 'Berlin', 'in', 'wohnt'],
+      correct: 'Mein Bruder wohnt in Berlin',
+      translation: 'My brother lives in Berlin'
+    },
+    {
+      id: 2,
+      scrambled: ['heute', 'Ich', 'müde', 'bin', 'sehr'],
+      correct: 'Ich bin heute sehr müde',
+      translation: 'I am very tired today'
+    },
+    {
+      id: 3,
+      scrambled: ['du', 'kommst', 'Woher', '?'],
+      correct: 'Woher kommst du?',
+      translation: 'Where do you come from?'
+    }
+  ];
+
+  const handleWordClick = (sentenceId, word, currentIndex) => {
+    const currentArrangement = arrangements[sentenceId] || [];
+    if (!currentArrangement.includes(word)) {
+      setArrangements({
+        ...arrangements,
+        [sentenceId]: [...currentArrangement, word]
+      });
+    }
+  };
+
+  return (
+    <div className="sentence-scramble">
+      {sentences.map(sentence => (
+        <div key={sentence.id} className="scramble-exercise">
+          <div className="scramble-header">
+            <span className="scramble-translation">{sentence.translation}</span>
+          </div>
+          <div className="word-pool">
+            {sentence.scrambled.map((word, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleWordClick(sentence.id, word, idx)}
+                disabled={showResults || (arrangements[sentence.id] || []).includes(word)}
+                className="scramble-word"
+              >
+                {word}
+              </button>
+            ))}
+          </div>
+          <div className="arranged-sentence">
+            {(arrangements[sentence.id] || []).map((word, idx) => (
+              <span key={idx} className="arranged-word">{word}</span>
+            ))}
+          </div>
+          {showResults && (
+            <div className={
+              arrangements[sentence.id]?.join(' ') === sentence.correct ? 
+              'correct-answer' : 'incorrect-answer'
+            }>
+              {arrangements[sentence.id]?.join(' ') === sentence.correct ? 
+                '✓ Correct!' : 
+                `✗ Correct order: ${sentence.correct}`}
+            </div>
+          )}
+        </div>
+      ))}
+      <div className="exercise-buttons">
+        <button onClick={() => setShowResults(true)} className="check-button">
+          Check All
+        </button>
+        <button 
+          onClick={() => {
+            setArrangements({});
+            setShowResults(false);
+          }} 
+          className="reset-button"
+        >
+          Reset All
+        </button>
+      </div>
+    </div>
+  );
+};
+
+<SentenceScramble />
+
+## 12. Picture Association
+
+Match the German words with their corresponding images:
+
+export const PictureAssociation = () => {
+  const [matches, setMatches] = React.useState({});
+  const [showResults, setShowResults] = React.useState(false);
+
+  const items = [
+    { word: 'das Haus', image: '🏠' },
+    { word: 'die Katze', image: '🐱' },
+    { word: 'der Hund', image: '🐕' },
+    { word: 'die Sonne', image: '☀️' },
+    { word: 'der Baum', image: '🌳' },
+    { word: 'das Auto', image: '🚗' }
+  ];
+
+  const handleMatch = (word, image) => {
+    setMatches(prev => ({
+      ...prev,
+      [word]: image
+    }));
+  };
+
+  return (
+    <div className="picture-association">
+      <div className="word-section">
+        {items.map(item => (
+          <div key={item.word} className="word-item">
+            <span className="german-word">{item.word}</span>
+            <div className="image-options">
+              {items.map(option => (
+                <button
+                  key={option.image}
+                  onClick={() => handleMatch(item.word, option.image)}
+                  disabled={showResults}
+                  className={`image-option ${
+                    matches[item.word] === option.image ? 'selected' : ''
+                  } ${
+                    showResults ? 
+                      option.image === item.image ? 'correct' : 
+                      matches[item.word] === option.image ? 'incorrect' : '' 
+                    : ''
+                  }`}
+                >
+                  {option.image}
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="exercise-buttons">
+        <button onClick={() => setShowResults(true)} className="check-button">
+          Check Answers
+        </button>
+        <button 
+          onClick={() => {
+            setMatches({});
+            setShowResults(false);
+          }}
+          className="reset-button"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+  );
+};
+
+<PictureAssociation />
+
+
+## Homework
+
+1. Create flashcards for all family members and countries covered in the exercises
+2. Write three dialogues introducing different family members
+3. Practice conjugating the verbs "haben", "sein", and "kommen" with all pronouns
+
+## Additional Resources
+
+- [Deutsche Welle - German Exercises](https://www.dw.com/learn-german)
+- [German Family Vocabulary Practice](https://www.germanveryeasy.com/family-members)
+- [Country Names in German](https://www.thoughtco.com/country-names-in-german-4069376)
+
+Remember to practice regularly! Viel Erfolg beim Üben! (Good luck with practicing!)
+
+export default function StyleWrapper({children}) {
+  return <div className="interactive-exercises-page">{children}</div>;
+}

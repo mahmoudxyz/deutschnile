@@ -1,0 +1,550 @@
+---
+sidebar_position: 5
+id: home-furniture
+title: Home Furniture and Living Spaces
+description: Learn about furniture, home items, and how to discuss prices and shopping in German
+slug: /a1.1/home-furniture
+---
+
+import Tabs from '@theme/Tabs';
+import React, { useState } from 'react';
+import TabItem from '@theme/TabItem';
+
+# Home Furniture and Living Spaces
+
+## Learning Objectives
+
+By the end of this lesson, you should be able to:
+1. Name common furniture and household items in German
+2. Describe rooms and furniture arrangements
+3. Ask about prices and negotiate when shopping
+4. Use prepositions to describe item locations
+5. Master essential verbs related to furniture and home setup
+
+## 1. Furniture and Home Items (Möbel und Haushaltsgegenstände)
+
+<Tabs>
+  <TabItem value="living" label="Living Room" default>
+
+| German (with article) | English | Plural Form |
+|----------------------|---------|-------------|
+| das Sofa | sofa | die Sofas |
+| der Sessel | armchair | die Sessel |
+| der Tisch | table | die Tische |
+| der Fernseher | television | die Fernseher |
+| das Regal | shelf/bookcase | die Regale |
+| der Teppich | carpet | die Teppiche |
+| die Lampe | lamp | die Lampen |
+| das Bild | picture | die Bilder |
+
+  </TabItem>
+  <TabItem value="bedroom" label="Bedroom">
+
+| German (with article) | English | Plural Form |
+|----------------------|---------|-------------|
+| das Bett | bed | die Betten |
+| der Schrank | wardrobe | die Schränke |
+| die Kommode | dresser | die Kommoden |
+| der Spiegel | mirror | die Spiegel |
+| das Kissen | pillow | die Kissen |
+| die Decke | blanket | die Decken |
+| der Nachttisch | nightstand | die Nachttische |
+| die Matratze | mattress | die Matratzen |
+
+  </TabItem>
+  <TabItem value="dining" label="Dining Room">
+
+| German (with article) | English | Plural Form |
+|----------------------|---------|-------------|
+| der Esstisch | dining table | die Esstische |
+| der Stuhl | chair | die Stühle |
+| die Vitrine | display cabinet | die Vitrinen |
+| das Geschirr | dishes | die Geschirre |
+| die Vase | vase | die Vasen |
+| der Vorhang | curtain | die Vorhänge |
+| das Besteck | cutlery | die Bestecke |
+| die Tischdecke | tablecloth | die Tischdecken |
+
+  </TabItem>
+</Tabs>
+
+:::tip
+When learning furniture vocabulary, always memorize the article (der/die/das) along with the noun.
+:::
+
+## 2. Essential Verbs and Actions
+
+| Infinitive | Present (ich) | English | Example |
+|------------|---------------|---------|----------|
+| stellen | stelle | to place (vertical) | Ich stelle die Lampe auf den Tisch. |
+| legen | lege | to place (horizontal) | Ich lege das Buch auf den Tisch. |
+| hängen | hänge | to hang | Ich hänge das Bild an die Wand. |
+| sitzen | sitze | to sit | Ich sitze auf dem Sofa. |
+| liegen | liege | to lie | Das Kissen liegt auf dem Bett. |
+| kosten | kostet | to cost | Der Tisch kostet 100 Euro. |
+| einrichten | richte ein | to furnish | Ich richte meine Wohnung ein. |
+| aufbauen | baue auf | to assemble | Ich baue den Schrank auf. |
+
+## 3. Prepositions and Location
+
+When describing furniture placement, use these prepositions with the correct case:
+
+### Dative (location - where something is)
+- **auf** dem Tisch (on the table)
+- **in** dem/im Zimmer (in the room)
+- **neben** dem Bett (next to the bed)
+- **zwischen** den Stühlen (between the chairs)
+- **unter** dem Tisch (under the table)
+
+### Accusative (direction - where something is being moved to)
+- **auf** den Tisch (onto the table)
+- **in** das/ins Zimmer (into the room)
+- **neben** das Bett (next to the bed)
+- **zwischen** die Stühle (between the chairs)
+- **unter** den Tisch (under the table)
+
+:::tip Grammar Note
+Use accusative case when describing movement/direction (Wohin? - Where to?) and dative for location (Wo? - Where?).
+:::
+
+## 4. Shopping Dialogue and Prices 🛍️
+
+### Essential Shopping Phrases
+
+export const PhraseCard = ({ german, english, icon }) => (
+  <div className="phrase-card">
+    <div className="phrase-icon">{icon}</div>
+    <div className="phrase-content">
+      <div className="phrase-german">{german}</div>
+      <div className="phrase-english">{english}</div>
+    </div>
+  </div>
+);
+
+export const ShoppingPhrases = () => (
+  <div className="phrases-grid">
+    <PhraseCard 
+      icon="💰"
+      german="Was kostet das?"
+      english="How much is this?"
+    />
+    <PhraseCard 
+      icon="💶"
+      german="Wie teuer ist das?"
+      english="How expensive is this?"
+    />
+    <PhraseCard 
+      icon="🎨"
+      german="Haben Sie das auch in einer anderen Farbe?"
+      english="Do you have this in a different color?"
+    />
+    <PhraseCard 
+      icon="📏"
+      german="Gibt es das auch in Größer/Kleiner?"
+      english="Is it available in larger/smaller?"
+    />
+    <PhraseCard 
+      icon="💳"
+      german="Kann ich mit Kreditkarte bezahlen?"
+      english="Can I pay by credit card?"
+    />
+    <PhraseCard 
+      icon="🚚"
+      german="Liefern Sie nach Hause?"
+      english="Do you deliver to home?"
+    />
+    <PhraseCard 
+      icon="🤝"
+      german="Ist der Preis verhandelbar?"
+      english="Is the price negotiable?"
+    />
+    <PhraseCard 
+      icon="🏷️"
+      german="Gibt es gerade ein Sonderangebot?"
+      english="Is there a special offer right now?"
+    />
+  </div>
+);
+
+<ShoppingPhrases />
+
+### Shopping Conversation 🗣️
+
+export const ChatMessage = ({ type, speaker, text, translation }) => (
+  <div className={`chat-message ${type}`}>
+    <div className="chat-avatar">
+      {type === 'customer' ? '👤' : '🏪'}
+    </div>
+    <div className="chat-content">
+      <div className="chat-header">
+        <span className="chat-speaker">{speaker}</span>
+        <span className="chat-time">9:41</span>
+      </div>
+      <div className="chat-bubble">
+        <div className="chat-text">{text}</div>
+        <div className="chat-translation">{translation}</div>
+      </div>
+    </div>
+  </div>
+);
+
+export const ShoppingDialogue = () => (
+  <div className="chat-container">
+    <div className="chat-title">
+      <span className="chat-store-name">🏬 Möbelhaus Chat</span>
+    </div>
+    <div className="chat-messages">
+      <ChatMessage 
+        type="customer"
+        speaker="Kunde"
+        text="Guten Tag, ich interessiere mich für diesen Schrank."
+        translation="Hello, I'm interested in this wardrobe."
+      />
+      <ChatMessage 
+        type="seller"
+        speaker="Verkäufer"
+        text="Guten Tag! Ja, das ist ein sehr schönes Modell."
+        translation="Hello! Yes, that's a very nice model."
+      />
+      <ChatMessage 
+        type="customer"
+        speaker="Kunde"
+        text="Was kostet er?"
+        translation="How much is it?"
+      />
+      <ChatMessage 
+        type="seller"
+        speaker="Verkäufer"
+        text="Der Schrank kostet 399 Euro."
+        translation="The wardrobe costs 399 euros."
+      />
+      <ChatMessage 
+        type="customer"
+        speaker="Kunde"
+        text="Haben Sie den auch in Weiß?"
+        translation="Do you have it in white too?"
+      />
+      <ChatMessage 
+        type="seller"
+        speaker="Verkäufer"
+        text="Ja, den gibt es in Weiß und auch in Braun."
+        translation="Yes, it's available in white and brown."
+      />
+      <ChatMessage 
+        type="customer"
+        speaker="Kunde"
+        text="Und liefern Sie nach Hause?"
+        translation="And do you deliver to home?"
+      />
+      <ChatMessage 
+        type="seller"
+        speaker="Verkäufer"
+        text="Ja, die Lieferung kostet extra 50 Euro."
+        translation="Yes, delivery costs an additional 50 euros."
+      />
+    </div>
+  </div>
+);
+
+<ShoppingDialogue />
+
+## 5. Describing Your Home 🏠
+
+### Common Patterns (Häufige Sätze)
+
+export const PatternCard = ({ german, english, icon }) => (
+  <div className="pattern-card">
+    <div className="pattern-icon">{icon}</div>
+    <div className="pattern-content">
+      <div className="pattern-german">{german}</div>
+      <div className="pattern-english">{english}</div>
+    </div>
+  </div>
+);
+
+<div className="patterns-grid">
+  <PatternCard 
+    icon="🛋️"
+    german="In meinem Wohnzimmer steht/stehen..."
+    english="In my living room there is/are..."
+  />
+  <PatternCard 
+    icon="📍"
+    german="Neben dem Sofa steht..."
+    english="Next to the sofa there is..."
+  />
+  <PatternCard 
+    icon="🖼️"
+    german="An der Wand hängt/hängen..."
+    english="On the wall there is/are..."
+  />
+  <PatternCard 
+    icon="📱"
+    german="Auf dem Tisch liegt/liegen..."
+    english="On the table there is/are..."
+  />
+</div>
+
+### Example Room Description
+
+export const RoomDescription = () => (
+  <div className="room-description">
+    <div className="room-image">
+      <div className="room-furniture-markers">
+        {/* Interactive room markers */}
+        <span className="marker" style={{top: '40%', left: '50%'}}>🪑</span>
+        <span className="marker" style={{top: '30%', left: '70%'}}>🛋️</span>
+        <span className="marker" style={{top: '20%', left: '80%'}}>💡</span>
+        <span className="marker" style={{top: '25%', left: '90%'}}>🖼️</span>
+      </div>
+    </div>
+    <div className="room-text">
+      <p className="german">Mein Wohnzimmer ist groß und hell.</p>
+      <p className="english">My living room is big and bright.</p>
+      <p className="german">In der Mitte steht ein brauner Tisch.</p>
+      <p className="english">In the middle there is a brown table.</p>
+      {/* More sentences... */}
+    </div>
+  </div>
+);
+
+<RoomDescription />
+
+## 6. Interactive Exercises 🎮
+
+### Exercise 1: Article Practice
+
+export const ArticleQuiz = () => {
+  const [answers, setAnswers] = React.useState({});
+  const [showResults, setShowResults] = React.useState(false);
+  const [score, setScore] = React.useState(0);
+  
+  const questions = [
+    { word: 'Tisch', correct: 'der', icon: '🪑' },
+    { word: 'Lampe', correct: 'die', icon: '💡' },
+    { word: 'Bett', correct: 'das', icon: '🛏️' },
+    { word: 'Stuhl', correct: 'der', icon: '🪑' },
+    { word: 'Sofa', correct: 'das', icon: '🛋️' }
+  ];
+
+  return (
+    <div className="quiz-container">
+      <div className="quiz-header">
+        <h4>Choose the correct article</h4>
+        {showResults && <div className="quiz-score">Score: {score}/{questions.length}</div>}
+      </div>
+      <div className="quiz-items">
+        {questions.map((q, idx) => (
+          <div key={idx} className="quiz-item">
+            <div className="quiz-word">
+              <span className="quiz-icon">{q.icon}</span>
+              <span className="word">{q.word}</span>
+            </div>
+            <div className="article-buttons">
+              {['der', 'die', 'das'].map(article => (
+                <button
+                  key={article}
+                  onClick={() => setAnswers({...answers, [idx]: article})}
+                  disabled={showResults}
+                  className={`article-button ${
+                    answers[idx] === article ? 'selected' : ''
+                  } ${
+                    showResults ? 
+                      article === q.correct ? 'correct' : 
+                      answers[idx] === article ? 'incorrect' : '' 
+                    : ''
+                  }`}
+                >
+                  {article}
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="exercise-buttons">
+        <button 
+          onClick={() => {
+            setShowResults(true);
+            setScore(questions.filter((q, idx) => answers[idx] === q.correct).length);
+          }}
+          className="check-button"
+        >
+          Check Answers
+        </button>
+        <button 
+          onClick={() => {
+            setAnswers({});
+            setShowResults(false);
+            setScore(0);
+          }}
+          className="reset-button"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+  );
+};
+
+<ArticleQuiz />
+
+### Exercise 2: Price Learning Game 💶
+
+export const PricePractice = () => {
+  const [currentStep, setCurrentStep] = React.useState(0);
+  const [answer, setAnswer] = React.useState('');
+  const [showHint, setShowHint] = React.useState(false);
+  const [showResult, setShowResult] = React.useState(false);
+
+  const prices = [
+    { 
+      price: "€149,99",
+      display: "💶 149,99",
+      answer: "einhundertneunundvierzig Euro neunundneunzig Cent",
+      hint: "100 = einhundert, 40 = vierzig, 9 = neun" 
+    },
+    { 
+      price: "€299,-",
+      display: "💶 299,00",
+      answer: "zweihundertneunundneunzig Euro",
+      hint: "200 = zweihundert, 90 = neunzig, 9 = neun" 
+    },
+    { 
+      price: "€75,50",
+      display: "💶 75,50",
+      answer: "fünfundsiebzig Euro fünfzig Cent",
+      hint: "70 = siebzig, 5 = fünf, 50 = fünfzig" 
+    },
+    { 
+      price: "€25,99",
+      display: "💶 25,99",
+      answer: "fünfundzwanzig Euro neunundneunzig Cent",
+      hint: "20 = zwanzig, 5 = fünf, 99 = neunundneunzig" 
+    }
+  ];
+
+  const handleNext = () => {
+    if (currentStep < prices.length - 1) {
+      setCurrentStep(curr => curr + 1);
+      resetState();
+    }
+  };
+
+  const handlePrevious = () => {
+    if (currentStep > 0) {
+      setCurrentStep(curr => curr - 1);
+      resetState();
+    }
+  };
+
+  const resetState = () => {
+    setAnswer('');
+    setShowHint(false);
+    setShowResult(false);
+  };
+
+  const checkAnswer = () => {
+    setShowResult(true);
+  };
+
+  return (
+    <div className="price-game">
+      <div className="price-card">
+        <div className="price-progress">
+          Question {currentStep + 1} of {prices.length}
+        </div>
+        <div className="price-display">{prices[currentStep].display}</div>
+        <div className="price-input-area">
+          <input
+            type="text"
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
+            placeholder="Write the price in German..."
+            className="price-input"
+            disabled={showResult}
+          />
+          <button 
+            className="hint-button"
+            onClick={() => setShowHint(!showHint)}
+          >
+            💡 {showHint ? 'Hide' : 'Show'} Hint
+          </button>
+        </div>
+        {showHint && (
+          <div className="hint-text">
+            <span>🔍 Hint: {prices[currentStep].hint}</span>
+          </div>
+        )}
+        {showResult && (
+          <div className={`result-message ${
+            answer.toLowerCase() === prices[currentStep].answer.toLowerCase() 
+              ? 'correct' 
+              : 'incorrect'
+          }`}>
+            {answer.toLowerCase() === prices[currentStep].answer.toLowerCase() 
+              ? '✅ Correct!' 
+              : `❌ The correct answer is: ${prices[currentStep].answer}`}
+          </div>
+        )}
+        <div className="button-group">
+          <button 
+            className="check-button"
+            onClick={checkAnswer}
+            disabled={!answer || showResult}
+          >
+            Check Answer
+          </button>
+          <button 
+            className="reset-button"
+            onClick={resetState}
+          >
+            Reset
+          </button>
+        </div>
+        <div className="navigation-buttons">
+          <button 
+            className="nav-button"
+            disabled={currentStep === 0}
+            onClick={handlePrevious}
+          >
+            ← Previous
+          </button>
+          <button
+            className="nav-button"
+            disabled={currentStep === prices.length - 1}
+            onClick={handleNext}
+          >
+            Next →
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+<PricePractice />
+
+## 7. Homework Tasks
+
+1. Draw your room and label all furniture items in German
+2. Write a short description of your ideal living room (5-6 sentences)
+3. Create a shopping dialogue for buying furniture
+4. Practice writing prices in German words
+5. Create flashcards for new furniture vocabulary
+
+## Additional Resources
+
+- [IKEA Germany Website](https://www.ikea.com/de/de/) - Practice with real furniture descriptions
+- [German Furniture Vocabulary Quizlet](https://quizlet.com/subject/german-furniture)
+- [Room Description Audio Examples](https://www.dw.com/learn-german)
+
+## Cultural Note
+
+Germans often use specific measurements when discussing furniture and room sizes. Measurements are typically in meters and centimeters, and prices are in Euros and Cents. Being precise with measurements and prices is an important part of German furniture shopping culture.
+
+Remember to practice regularly! Viel Erfolg beim Lernen! (Good luck with learning!)
+
+export default function StyleWrapper({children}) {
+  return <div className="home-furniture-lesson">{children}</div>;
+}

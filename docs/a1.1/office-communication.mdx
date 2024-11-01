@@ -1,0 +1,620 @@
+---
+sidebar_position: 7
+id: office-communication
+title: Office and Business Communication
+description: Learn about office equipment, professional communication, and business German
+slug: /a1.1/office-communication
+---
+
+import Tabs from '@theme/Tabs';
+import React, { useState } from 'react';
+import TabItem from '@theme/TabItem';
+
+export const ChatMessage = ({ type, text, translation, subtext }) => (
+  <div className={`chat-message ${type}`}>
+    <div className="chat-avatar">
+      {type === 'question' ? '❓' : 
+       type === 'business' ? '🏢' : 
+       type === 'caller' ? '📞' : 
+       type === 'situation' ? '📝' :
+       type === 'solution' ? '✅' : '💬'}
+    </div>
+    <div className="chat-content">
+      <div className="chat-bubble">
+        <div className="chat-text">{text}</div>
+        {subtext && <div className="chat-subtext">{subtext}</div>}
+        <div className="chat-translation">{translation}</div>
+      </div>
+    </div>
+  </div>
+);
+
+# Office and Business Communication 🏢
+
+## Learning Objectives
+
+By the end of this lesson, you should be able to:
+1. Use formal and informal communication appropriately
+2. Handle basic office tasks in German
+3. Write simple business emails and messages
+4. Participate in basic meetings
+5. Use office equipment and give/receive instructions
+6. Navigate common workplace situations
+
+## 1. Office Items and Equipment
+
+### 1.1 Basic Office Vocabulary
+
+<Tabs>
+  <TabItem value="tech" label="Technology & Equipment" default>
+
+| German (with article) | English | Plural Form | Example |
+|----------------------|---------|-------------|----------|
+| der Computer | computer | die Computer | Der Computer ist neu. |
+| der Drucker | printer | die Drucker | Der Drucker funktioniert nicht. |
+| der Bildschirm | monitor | die Bildschirme | Der Bildschirm ist zu hell. |
+| die Tastatur | keyboard | die Tastaturen | Die Tastatur ist kaputt. |
+| die Maus | mouse | die Mäuse | Die Maus reagiert nicht. |
+| das Handy | mobile phone | die Handys | Das Handy klingelt. |
+| das Telefon | telephone | die Telefone | Das Telefon ist besetzt. |
+| der Scanner | scanner | die Scanner | Der Scanner ist neu. |
+
+  </TabItem>
+  <TabItem value="supplies" label="Office Supplies">
+
+| German (with article) | English | Plural Form | Example |
+|----------------------|---------|-------------|----------|
+| der Stift | pen | die Stifte | Der Stift schreibt gut. |
+| der Bleistift | pencil | die Bleistifte | Der Bleistift ist stumpf. |
+| das Papier | paper | die Papiere | Das Papier ist weiß. |
+| der Ordner | folder | die Ordner | Der Ordner ist voll. |
+| die Akte | file | die Akten | Die Akte ist wichtig. |
+| der Locher | hole punch | die Locher | Der Locher ist kaputt. |
+| die Büroklammer | paper clip | die Büroklammern | Die Büroklammer ist verbogen. |
+| das Formular | form | die Formulare | Das Formular ist leer. |
+
+  </TabItem>
+  <TabItem value="furniture" label="Office Furniture">
+
+| German (with article) | English | Plural Form | Example |
+|----------------------|---------|-------------|----------|
+| der Schreibtisch | desk | die Schreibtische | Der Schreibtisch ist groß. |
+| der Stuhl | chair | die Stühle | Der Stuhl ist bequem. |
+| der Schrank | cabinet | die Schränke | Der Schrank ist leer. |
+| das Regal | shelf | die Regale | Das Regal ist neu. |
+| die Lampe | lamp | die Lampen | Die Lampe ist hell. |
+| der Papierkorb | waste basket | die Papierkörbe | Der Papierkorb ist voll. |
+
+  </TabItem>
+</Tabs>
+
+:::tip Grammar Note
+Remember the plural forms - they're essential for office communication! Common patterns:
+- Add -e: der Stift → die Stifte
+- Add -er: das Bild → die Bilder
+- Add -en: die Akte → die Akten
+- Add -s: das Handy → die Handys
+:::
+
+### 1.2 Office Actions and Activities
+
+export const ActionCard = ({ german, english, example }) => (
+  <div className="phrase-card">
+    <div className="phrase-content">
+      <div className="phrase-german">{german}</div>
+      <div className="phrase-english">{english}</div>
+      <div className="phrase-example">{example}</div>
+    </div>
+  </div>
+);
+
+<div className="phrases-grid">
+  <ActionCard 
+    german="drucken"
+    english="to print"
+    example="Ich drucke die Dokumente."
+  />
+  <ActionCard 
+    german="speichern"
+    english="to save"
+    example="Ich speichere die Datei."
+  />
+  <ActionCard 
+    german="kopieren"
+    english="to copy"
+    example="Ich kopiere den Text."
+  />
+  <ActionCard 
+    german="scannen"
+    english="to scan"
+    example="Ich scanne den Brief."
+  />
+  <ActionCard 
+    german="senden"
+    english="to send"
+    example="Ich sende die E-Mail."
+  />
+  <ActionCard 
+    german="empfangen"
+    english="to receive"
+    example="Ich empfange ein Fax."
+  />
+</div>
+
+## 2. Formal Communication in the Office
+
+### 2.1 Addressing Colleagues (Anrede)
+
+<div className="info-box">
+  <h4>Formal vs. Informal Address</h4>
+  
+  **Formal (Sie)**
+  - With supervisors
+  - With new colleagues
+  - In meetings
+  - With clients
+  - In written communication
+
+  **Informal (du)**
+  - With close colleagues
+  - After being invited to use "du"
+  - In casual team settings
+</div>
+
+### 2.2 Common Office Phrases
+
+<Tabs>
+  <TabItem value="formal" label="Formal (Sie)" default>
+
+| German | English | Usage |
+|--------|---------|--------|
+| Könnten Sie mir bitte helfen? | Could you help me please? | Asking for help |
+| Haben Sie einen Moment Zeit? | Do you have a moment? | Requesting time |
+| Können Sie das bitte ausdrucken? | Could you please print this? | Asking for printing |
+| Wo finde ich...? | Where can I find...? | Asking for location |
+| Entschuldigung, störe ich? | Excuse me, am I disturbing? | Being polite |
+
+  </TabItem>
+  <TabItem value="informal" label="Informal (du)" default>
+
+| German | English | Usage |
+|--------|---------|--------|
+| Kannst du mir helfen? | Can you help me? | Asking for help |
+| Hast du kurz Zeit? | Do you have a minute? | Requesting time |
+| Druckst du das aus? | Will you print this? | Asking for printing |
+| Weißt du, wo...ist? | Do you know where...is? | Asking for location |
+| Störe ich gerade? | Am I disturbing? | Being casual |
+
+  </TabItem>
+</Tabs>
+
+## 3. Phone Communication (Telefonkommunikation)
+
+### 3.1 Professional Phone Greetings
+
+<div className="chat-container">
+  <div className="chat-title">
+    <span className="chat-store-name">Standard Business Phone Calls</span>
+  </div>
+  <div className="chat-messages">
+    <ChatMessage 
+      type="business"
+      text="[Firma] Müller, guten Tag. Mein Name ist [Name]."
+      translation="[Company] Müller, hello. My name is [Name]."
+    />
+    <ChatMessage 
+      type="business"
+      text="Guten Tag, hier ist [Name] von [Firma]."
+      translation="Hello, this is [Name] from [Company]."
+    />
+  </div>
+</div>
+
+### 3.2 Important Phone Phrases
+
+<Tabs>
+  <TabItem value="answering" label="Answering Calls" default>
+
+| German | English | Usage |
+|--------|---------|--------|
+| Einen Moment, bitte. | One moment, please. | Asking caller to wait |
+| Ich verbinde Sie. | I'll connect you. | Transferring calls |
+| Der Anschluss ist besetzt. | The line is busy. | Line busy |
+| Kann ich Ihnen helfen? | Can I help you? | Offering assistance |
+| Können Sie das buchstabieren? | Can you spell that? | Asking for spelling |
+
+  </TabItem>
+  <TabItem value="taking" label="Taking Messages">
+
+| German | English | Usage |
+|--------|---------|--------|
+| Kann ich eine Nachricht aufnehmen? | Can I take a message? | Offering to take message |
+| Wann ist er/sie wieder da? | When will he/she be back? | Asking about return |
+| Ich sage ihm/ihr Bescheid. | I'll let him/her know. | Confirming message |
+| Können Sie später noch mal anrufen? | Could you call back later? | Requesting callback |
+
+  </TabItem>
+</Tabs>
+
+### 3.3 Phone Example Dialogue
+
+<div className="chat-container">
+  <div className="chat-messages">
+    <ChatMessage 
+      type="business"
+      text="Schulz GmbH, guten Tag. Mein Name ist Weber."
+      translation="Schulz GmbH, hello. My name is Weber."
+    />
+    <ChatMessage 
+      type="caller"
+      text="Guten Tag, hier ist Schmidt von der Firma Tech AG. Ich hätte gerne Herrn Müller gesprochen."
+      translation="Hello, this is Schmidt from Tech AG. I'd like to speak with Mr. Müller."
+    />
+    <ChatMessage 
+      type="business"
+      text="Tut mir leid, Herr Müller ist gerade in einer Besprechung. Kann ich ihm etwas ausrichten?"
+      translation="I'm sorry, Mr. Müller is in a meeting right now. Can I take a message?"
+    />
+    <ChatMessage 
+      type="caller"
+      text="Ja, bitte. Er soll mich wegen des Termins am Mittwoch zurückrufen."
+      translation="Yes, please. He should call me back about Wednesday's appointment."
+    />
+  </div>
+</div>
+
+## 4. Email Communication
+
+### 4.1 Email Structure
+
+<div className="info-box">
+  <h4>Standard German Business Email Format</h4>
+
+1. **Betreff** (Subject)
+   - Clear and concise
+   - Start with capital letter
+   - No period at the end
+
+2. **Anrede** (Greeting)
+   - Sehr geehrte Frau [Name],
+   - Sehr geehrter Herr [Name],
+   - Sehr geehrte Damen und Herren,
+
+3. **Email-Körper** (Body)
+   - Clear paragraphs
+   - Formal language
+   - Professional tone
+
+4. **Grußformel** (Closing)
+   - Mit freundlichen Grüßen
+   - Beste Grüße
+   - Viele Grüße
+</div>
+
+### 4.2 Common Email Phrases
+
+<Tabs>
+  <TabItem value="opening" label="Opening Phrases">
+
+| German | English | Usage |
+|--------|---------|--------|
+| Ich hoffe, es geht Ihnen gut. | I hope you are well. | Polite opening |
+| Vielen Dank für Ihre E-Mail. | Thank you for your email. | Acknowledging receipt |
+| Bezugnehmend auf Ihre Anfrage... | Regarding your inquiry... | Referencing previous contact |
+
+  </TabItem>
+  <TabItem value="closing" label="Closing Phrases">
+
+| German | English | Usage |
+|--------|---------|--------|
+| Bei Fragen stehe ich gerne zur Verfügung. | Please let me know if you have any questions. | Offering help |
+| Ich freue mich auf Ihre Antwort. | I look forward to your response. | Expecting reply |
+| Vielen Dank im Voraus. | Thank you in advance. | Thanking beforehand |
+
+  </TabItem>
+</Tabs>
+
+## 5. Meetings and Appointments
+
+### 5.1 Meeting Vocabulary
+
+export const MeetingCard = ({ german, english, example }) => (
+  <div className="phrase-card">
+    <div className="phrase-content">
+      <div className="phrase-german">{german}</div>
+      <div className="phrase-english">{english}</div>
+      <div className="phrase-example">{example}</div>
+    </div>
+  </div>
+);
+
+<div className="phrases-grid">
+  <MeetingCard 
+    german="die Besprechung"
+    english="the meeting"
+    example="Die Besprechung beginnt um 9 Uhr."
+  />
+  <MeetingCard 
+    german="der Termin"
+    english="the appointment"
+    example="Ich habe heute drei Termine."
+  />
+  <MeetingCard 
+    german="die Tagesordnung"
+    english="the agenda"
+    example="Die Tagesordnung hat fünf Punkte."
+  />
+  <MeetingCard 
+    german="das Protokoll"
+    english="the minutes"
+    example="Wer schreibt das Protokoll?"
+  />
+</div>
+
+### 5.2 Scheduling Phrases
+
+<div className="chat-container">
+  <div className="chat-messages">
+    <ChatMessage 
+      type="question"
+      text="Wann passt es Ihnen?"
+      translation="When would it suit you?"
+    />
+    <ChatMessage 
+      type="answer"
+      text="Ich kann am Montag um 14 Uhr."
+      translation="I can do Monday at 2 PM."
+    />
+    <ChatMessage 
+      type="question"
+      text="Können wir den Termin verschieben?"
+      translation="Can we reschedule the appointment?"
+    />
+    <ChatMessage 
+      type="answer"
+      text="Ja, nächste Woche wäre besser."
+      translation="Yes, next week would be better."
+    />
+  </div>
+</div>
+
+Here's Part 3 of the office communication lesson, focusing on interactive exercises and practice activities:
+
+## 6. Interactive Exercises 🎮
+
+### 6.1 Office Vocabulary Practice
+
+export const VocabQuiz = () => {
+  const [answers, setAnswers] = React.useState({});
+  const [showResults, setShowResults] = React.useState(false);
+  const [score, setScore] = React.useState(0);
+  
+  const questions = [
+    {
+      image: "💻",
+      word: "Computer",
+      article: "der",
+      hint: "masculine - electronic device"
+    },
+    {
+      image: "📄",
+      word: "Formular",
+      article: "das",
+      hint: "neutral - paper document"
+    },
+    {
+      image: "📱",
+      word: "Handy",
+      article: "das",
+      hint: "neutral - mobile device"
+    },
+    {
+      image: "💼",
+      word: "Aktentasche",
+      article: "die",
+      hint: "feminine - carrying item"
+    },
+    {
+      image: "🖨️",
+      word: "Drucker",
+      article: "der",
+      hint: "masculine - office machine"
+    }
+  ];
+
+  return (
+    <div className="quiz-container">
+      <div className="quiz-header">
+        <h4>Choose the correct article</h4>
+        {showResults && <div className="quiz-score">Score: {score}/{questions.length}</div>}
+      </div>
+      <div className="quiz-items">
+        {questions.map((q, idx) => (
+          <div key={idx} className="quiz-item">
+            <div className="quiz-word">
+              <span className="quiz-icon">{q.image}</span>
+              <span className="word">{q.word}</span>
+            </div>
+            <div className="article-buttons">
+              {['der', 'die', 'das'].map(article => (
+                <button
+                  key={article}
+                  onClick={() => setAnswers({...answers, [idx]: article})}
+                  disabled={showResults}
+                  className={`article-button ${
+                    answers[idx] === article ? 'selected' : ''
+                  } ${
+                    showResults ? 
+                      article === q.correct ? 'correct' : 
+                      answers[idx] === article ? 'incorrect' : '' 
+                    : ''
+                  }`}
+                >
+                  {article}
+                </button>
+              ))}
+            </div>
+            {showResults && (
+              <div className="hint-text">
+                Hint: {q.hint}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+      <div className="exercise-buttons">
+        <button 
+          onClick={() => {
+            setShowResults(true);
+            setScore(questions.filter((q, idx) => answers[idx] === q.article).length);
+          }}
+          className="check-button"
+        >
+          Check Answers
+        </button>
+        <button 
+          onClick={() => {
+            setAnswers({});
+            setShowResults(false);
+            setScore(0);
+          }}
+          className="reset-button"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+  );
+};
+
+<VocabQuiz />
+
+### 6.2 Phone Conversation Practice
+
+export const PhoneDialogueExercise = () => {
+  const [currentStep, setCurrentStep] = React.useState(0);
+  const [selectedAnswer, setSelectedAnswer] = React.useState('');
+  const [showResult, setShowResult] = React.useState(false);
+
+  const scenarios = [
+    {
+      situation: "Someone calls asking for Mr. Schmidt, who is in a meeting.",
+      options: [
+        "Nein, er ist nicht da.",
+        "Tut mir leid, Herr Schmidt ist gerade in einer Besprechung. Kann ich ihm etwas ausrichten?",
+        "Rufen Sie später an."
+      ],
+      correct: 1,
+      explanation: "This is the most professional response, offering to take a message."
+    },
+    {
+      situation: "You need to transfer a call to another department.",
+      options: [
+        "Warten Sie.",
+        "Einen Moment bitte, ich verbinde Sie.",
+        "Ich weiß nicht."
+      ],
+      correct: 1,
+      explanation: "This is polite and clear, informing the caller what's happening."
+    }
+  ];
+
+  return (
+    <div className="dialogue-exercise">
+      {/* Exercise implementation */}
+    </div>
+  );
+};
+
+<PhoneDialogueExercise />
+
+### 6.3 Email Writing Exercise
+
+export const EmailExercise = () => {
+  const [emailParts, setEmailParts] = React.useState({
+    greeting: '',
+    body: '',
+    closing: ''
+  });
+  const [showFeedback, setShowFeedback] = React.useState(false);
+
+  const scenario = {
+    description: "Write an email to schedule a meeting with your colleague next week.",
+    requirements: [
+      "Use formal language",
+      "Include date and time proposal",
+      "Ask for confirmation"
+    ]
+  };
+
+  return (
+    <div className="email-exercise">
+      {/* Exercise implementation */}
+    </div>
+  );
+};
+
+<EmailExercise />
+
+### 6.4 Office Situations Role-Play
+
+Practice these common office situations with a partner:
+
+1. **Situation: Printer Problems**
+   - Person A: Ask for help with the printer
+   - Person B: Explain how to fix the paper jam
+
+```text
+A: Entschuldigung, können Sie mir helfen? Der Drucker funktioniert nicht.
+B: Ja, natürlich. Was ist das Problem?
+A: Ich glaube, das Papier ist eingeklemmt.
+B: Ah, ich zeige Ihnen, wie man das behebt.
+```
+
+2. **Situation: Meeting Schedule**
+   - Person A: Propose a meeting time
+   - Person B: Suggest a different time
+
+```text
+A: Haben Sie am Montag um 14 Uhr Zeit für eine Besprechung?
+B: Leider nicht, da bin ich schon in einem Meeting. Wie wäre es am Dienstag?
+A: Dienstag passt gut. Sagen wir 10 Uhr?
+B: Ja, perfekt. Danke für die Terminvereinbarung.
+```
+
+## 7. Practice Activities and Homework
+
+### 7.1 Writing Tasks
+1. Write a formal email requesting a meeting
+2. Create a phone message template
+3. Write responses to three common office requests
+
+### 7.2 Speaking Practice
+1. Record yourself answering the phone professionally
+2. Practice the dialogue examples with a study partner
+3. Role-play three office situations
+
+### 7.3 Vocabulary Building
+1. Create flashcards for new office vocabulary
+2. Label items in your workspace with German terms
+3. Make a list of common phrases you use at work
+
+## 8. Additional Resources
+
+- [Business German Vocabulary Lists](link)
+- [Office Communication Audio Examples](link)
+- [Email Templates in German](link)
+- [Professional Phone Conversation Practice](link)
+
+## Cultural Notes
+
+- Germans typically use formal language (Sie) in business settings until invited to use informal language (du)
+- Punctuality is extremely important in German business culture
+- Written communication tends to be more formal and structured than in some other cultures
+- Office hierarchies are usually clearly defined and respected
+
+Remember: Regular practice is key to mastering office communication! Viel Erfolg! (Good luck!)
+
+export default function StyleWrapper({children}) {
+  return <div className="office-communication-lesson">{children}</div>;
+}

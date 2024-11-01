@@ -1,0 +1,363 @@
+---
+sidebar_position: 6
+id: what-is-this
+title: What is This? - Personal Items and Forms
+description: Learn about personal items, asking questions, and filling out basic forms in German
+slug: /a1.1/what-is-this
+---
+
+import Tabs from '@theme/Tabs';
+import React, { useState } from 'react';
+import TabItem from '@theme/TabItem';
+
+# What is This? (Was ist das?) 🤔
+
+## Learning Objectives
+
+By the end of this lesson, you should be able to:
+1. Ask and answer "What is this?"
+2. Name common personal items
+3. Use indefinite articles (ein/eine) and negative articles (kein/keine)
+4. Tell and ask for the time
+5. Fill out basic forms in German
+
+## 1. Personal Items (Persönliche Gegenstände)
+
+export const ItemCard = ({ german, english, icon }) => (
+  <div className="phrase-card">
+    <div className="phrase-icon">{icon}</div>
+    <div className="phrase-content">
+      <div className="phrase-german">{german}</div>
+      <div className="phrase-english">{english}</div>
+    </div>
+  </div>
+);
+
+export const PersonalItems = () => (
+  <div className="phrases-grid">
+    <ItemCard 
+      icon="👜"
+      german="die Tasche"
+      english="the bag"
+    />
+    <ItemCard 
+      icon="📖"
+      german="das Buch"
+      english="the book"
+    />
+    <ItemCard 
+      icon="👓"
+      german="die Brille"
+      english="the glasses"
+    />
+    <ItemCard 
+      icon="✒️"
+      german="der Stift"
+      english="the pen"
+    />
+    <ItemCard 
+      icon="📱"
+      german="das Handy"
+      english="the mobile phone"
+    />
+    <ItemCard 
+      icon="⌚"
+      german="die Uhr"
+      english="the watch/clock"
+    />
+    <ItemCard 
+      icon="📸"
+      german="die Kamera"
+      english="the camera"
+    />
+    <ItemCard 
+      icon="🔑"
+      german="der Schlüssel"
+      english="the key"
+    />
+    <ItemCard 
+      icon="📝"
+      german="der Bleistift"
+      english="the pencil"
+    />
+    <ItemCard 
+      icon="⚜️"
+      german="die Kette"
+      english="the necklace"
+    />
+  </div>
+);
+
+<PersonalItems />
+
+## 2. Asking Questions (Fragen stellen)
+
+export const ChatMessage = ({ type, speaker, text, translation }) => (
+  <div className={`chat-message ${type}`}>
+    <div className="chat-avatar">
+      {type === 'question' ? '❓' : '✅'}
+    </div>
+    <div className="chat-content">
+      <div className="chat-bubble">
+        <div className="chat-text">{text}</div>
+        <div className="chat-translation">{translation}</div>
+      </div>
+    </div>
+  </div>
+);
+
+<div className="chat-container">
+  <div className="chat-title">
+    <span className="chat-store-name">Common Questions and Answers</span>
+  </div>
+  <div className="chat-messages">
+    <ChatMessage 
+      type="question"
+      text="Was ist das?"
+      translation="What is this?"
+    />
+    <ChatMessage 
+      type="answer"
+      text="Das ist ein Buch."
+      translation="This is a book."
+    />
+    <ChatMessage 
+      type="question"
+      text="Ist das eine Tasche?"
+      translation="Is this a bag?"
+    />
+    <ChatMessage 
+      type="answer"
+      text="Ja, das ist eine Tasche."
+      translation="Yes, this is a bag."
+    />
+    <ChatMessage 
+      type="question"
+      text="Ist das dein Handy?"
+      translation="Is this your mobile phone?"
+    />
+    <ChatMessage 
+      type="answer"
+      text="Nein, das ist nicht mein Handy."
+      translation="No, this is not my mobile phone."
+    />
+  </div>
+</div>
+
+## 3. Articles: ein/eine and kein/keine
+
+### Indefinite Articles (ein/eine)
+
+export const ArticleTable = () => (
+  <div className="phrase-card">
+    <table>
+      <thead>
+        <tr>
+          <th>Gender</th>
+          <th>Article</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>masculine (der)</td>
+          <td>ein</td>
+          <td>ein Stift (a pen)</td>
+        </tr>
+        <tr>
+          <td>feminine (die)</td>
+          <td>eine</td>
+          <td>eine Tasche (a bag)</td>
+        </tr>
+        <tr>
+          <td>neuter (das)</td>
+          <td>ein</td>
+          <td>ein Buch (a book)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+);
+
+<ArticleTable />
+
+### Negative Articles (kein/keine)
+
+To say "not a" or "not any", use:
+- masculine/neuter: **kein** (ein → kein)
+- feminine: **keine** (eine → keine)
+
+export const NegativeExample = () => (
+  <div className="chat-container">
+    <div className="chat-messages">
+      <ChatMessage 
+        type="question"
+        text="Ist das ein Stift?"
+        translation="Is this a pen?"
+      />
+      <ChatMessage 
+        type="answer"
+        text="Nein, das ist kein Stift. Das ist ein Bleistift."
+        translation="No, this is not a pen. This is a pencil."
+      />
+    </div>
+  </div>
+);
+
+<NegativeExample />
+
+## 4. Colors (Farben)
+
+export const ColorCard = ({ german, english, color }) => (
+  <div className="phrase-card">
+    <div className="phrase-icon" style={{backgroundColor: color, border: color === '#FFFFFF' ? '1px solid #ccc' : 'none'}}></div>
+    <div className="phrase-content">
+      <div className="phrase-german">{german}</div>
+      <div className="phrase-english">{english}</div>
+    </div>
+  </div>
+);
+
+export const Colors = () => (
+  <div className="phrases-grid">
+    <ColorCard 
+      german="rot"
+      english="red"
+      color="#FF0000"
+    />
+    <ColorCard 
+      german="blau"
+      english="blue"
+      color="#0000FF"
+    />
+    <ColorCard 
+      german="gelb"
+      english="yellow"
+      color="#FFFF00"
+    />
+    <ColorCard 
+      german="grün"
+      english="green"
+      color="#008000"
+    />
+    <ColorCard 
+      german="schwarz"
+      english="black"
+      color="#000000"
+    />
+    <ColorCard 
+      german="weiß"
+      english="white"
+      color="#FFFFFF"
+    />
+  </div>
+);
+
+<Colors />
+
+## 5. Telling Time (Die Uhrzeit)
+
+export const TimeCard = ({ time, german, english }) => (
+  <div className="phrase-card">
+    <div className="phrase-icon">🕐</div>
+    <div className="phrase-content">
+      <div className="phrase-german">{german}</div>
+      <div className="phrase-english">{english}</div>
+    </div>
+  </div>
+);
+
+export const Times = () => (
+  <div className="phrases-grid">
+    <TimeCard 
+      time="8:00"
+      german="Es ist acht Uhr."
+      english="It is 8 o'clock."
+    />
+    <TimeCard 
+      time="8:15"
+      german="Es ist Viertel nach acht."
+      english="It is quarter past eight."
+    />
+    <TimeCard 
+      time="8:30"
+      german="Es ist halb neun."
+      english="It is half past eight."
+    />
+    <TimeCard 
+      time="8:45"
+      german="Es ist Viertel vor neun."
+      english="It is quarter to nine."
+    />
+  </div>
+);
+
+<Times />
+
+## 6. Personal Information Forms
+
+### Common Form Fields
+
+export const FormField = ({ german, english, example }) => (
+  <div className="phrase-card">
+    <div className="phrase-content">
+      <div className="phrase-german">{german}</div>
+      <div className="phrase-english">{english}</div>
+      <div className="phrase-example">Beispiel: {example}</div>
+    </div>
+  </div>
+);
+
+export const FormFields = () => (
+  <div className="phrases-grid">
+    <FormField 
+      german="Vorname"
+      english="First name"
+      example="Thomas"
+    />
+    <FormField 
+      german="Nachname"
+      english="Last name"
+      example="Schmidt"
+    />
+    <FormField 
+      german="Geburtsdatum"
+      english="Date of birth"
+      example="01.03.1990"
+    />
+    <FormField 
+      german="E-Mail-Adresse"
+      english="Email address"
+      example="t.schmidt@email.de"
+    />
+    <FormField 
+      german="Telefonnummer"
+      english="Phone number"
+      example="0176 1234567"
+    />
+    <FormField 
+      german="Adresse"
+      english="Address"
+      example="Hauptstraße 1, 10115 Berlin"
+    />
+  </div>
+);
+
+<FormFields />
+
+## Interactive Exercises
+
+### Exercise 1: Personal Items Practice
+
+export const ItemQuiz = () => {
+  // Implementation similar to previous exercises but with personal items
+  return (
+    <div className="quiz-container">
+      {/* Quiz content */}
+    </div>
+  );
+};
+
+<ItemQuiz />
+
+[Continue with more exercises...]
